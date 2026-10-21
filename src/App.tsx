@@ -1,8 +1,9 @@
-import Button from './components/kit/Button'
-import Input from './components/kit/Input'
+import Button from "./components/kit/Button";
+import Input  from "./components/kit/Input";
+import Typography from "./components/kit/Typography";
 
 
-
+// --- Icons ---
 const CubeIcon = () => (
   <span aria-hidden="true" className="text-base leading-none">◈</span>
 )
@@ -33,14 +34,95 @@ const ChevronDownIcon = () => (
 
 function App() {
   return (
-    <main className="min-h-screen bg-white p-8 text-black">
+    <main className="min-h-screen bg-white p-8 text-black font-sans">
       
-      {}
-      <h1 className="text-2xl font-bold mb-8">Inputs</h1>
+      {/* Using Typography for the main title as the teacher asked */}
+      <Typography variant="h1" className="mb-12 text-4xl md:text-5xl font-bold">
+        UI Kit
+      </Typography>
+
+      {/* =========================================
+          BUTTONS SECTION (Restored Full Version)
+      ========================================= */}
+      <Typography variant="h2" className="mb-8">Buttons</Typography>
+      
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        {/* Inputs Light theme */}
-        <section className="space-y-4 bg-white p-4 border rounded-lg">
-          <h2 className="text-lg font-semibold mb-6">Light theme</h2>
+        {/* Light Theme Buttons */}
+        <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
+          <h3 className="text-lg font-semibold">Light theme</h3>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button>Button</Button>
+            <Button variant="outline">Button</Button>
+            <Button variant="ghost">Button</Button>
+            <Button variant="danger">Danger</Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button icon={<CubeIcon />}>Button</Button>
+            <Button variant="outline" icon={<CubeIcon />}>Button</Button>
+            <Button variant="ghost" icon={<CubeIcon />}>Button</Button>
+            <Button variant="danger" icon={<CubeIcon />}>Danger</Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button size="icon" aria-label="Cube"><CubeIcon /></Button>
+            <Button size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
+            <Button size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
+            <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
+          </div>
+        </section>
+
+        {/* Dark Theme Buttons */}
+        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
+          <h3 className="text-lg font-semibold">Dark theme</h3>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button theme="dark">Button</Button>
+            <Button theme="dark" variant="outline">Button</Button>
+            <Button theme="dark" variant="ghost">Button</Button>
+            <Button theme="dark" variant="danger">Danger</Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button theme="dark" icon={<CubeIcon />}>Button</Button>
+            <Button theme="dark" variant="outline" icon={<CubeIcon />}>Button</Button>
+            <Button theme="dark" variant="ghost" icon={<CubeIcon />}>Button</Button>
+            <Button theme="dark" variant="danger" icon={<CubeIcon />}>Danger</Button>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <Button theme="dark" icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button theme="dark" variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button theme="dark" variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
+            <Button theme="dark" variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Button theme="dark" size="icon" aria-label="Cube"><CubeIcon /></Button>
+            <Button theme="dark" size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
+            <Button theme="dark" size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
+            <Button theme="dark" size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
+          </div>
+        </section>
+      </div>
+
+      {/* =========================================
+          INPUTS SECTION (Restored Full Version)
+      ========================================= */}
+      <Typography variant="h2" className="mb-8">Inputs</Typography>
+      
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+        {/* Light Theme Inputs */}
+        <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
+          <h3 className="text-lg font-semibold mb-6">Light theme</h3>
           <Input placeholder="Placeholder" />
           <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
           <Input placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
@@ -49,9 +131,9 @@ function App() {
           <Input placeholder="www.relume.io" prefix="http://" />
         </section>
 
-        {/* Inputs Dark theme */}
+        {/* Dark Theme Inputs */}
         <section className="space-y-4 bg-black p-4 text-white rounded-lg">
-          <h2 className="text-lg font-semibold mb-6">Dark theme</h2>
+          <h3 className="text-lg font-semibold mb-6">Dark theme</h3>
           <Input theme="dark" placeholder="Placeholder" />
           <Input theme="dark" placeholder="Placeholder" rightIcon={<QuestionIcon />} />
           <Input theme="dark" placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
@@ -61,93 +143,6 @@ function App() {
         </section>
       </div>
 
-
-      {}
-      <h1 className="text-2xl font-bold mb-8">Buttons</h1>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-        
-        {/* Buttons Light theme */}
-        <section className="space-y-8 bg-white p-4 border rounded-lg">
-          <h2 className="text-lg font-semibold">Light theme</h2>
-
-          {/* Standard */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
-            <Button variant="ghost">Button</Button>
-            {/*DANGER BUTTON */}
-            <Button variant="danger">Danger</Button> 
-          </div>
-
-          {/* Left Icon */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button icon={<CubeIcon />}>Button</Button>
-            <Button variant="outline" icon={<CubeIcon />}>Button</Button>
-            <Button variant="ghost" icon={<CubeIcon />}>Button</Button>
-            {/*DANGER BUTTON */}
-            <Button variant="danger" icon={<CubeIcon />}>Danger</Button>
-          </div>
-
-          {/* Right Icon */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            {/*DANGER BUTTON */}
-            <Button variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
-          </div>
-
-          {/* Icon Only */}
-          <div className="flex items-center gap-4">
-            <Button size="icon" aria-label="Cube"><CubeIcon /></Button>
-            <Button size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
-            <Button size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
-            {/*DANGER BUTTON */}
-            <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
-          </div>
-        </section>
-
-        {/* Buttons Dark theme */}
-        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
-          <h2 className="text-lg font-semibold">Dark theme</h2>
-
-          {/* Standard */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark">Button</Button>
-            <Button theme="dark" variant="outline">Button</Button>
-            <Button theme="dark" variant="ghost">Button</Button>
-            {/* DANGER BUTTON */}
-            <Button theme="dark" variant="danger">Danger</Button>
-          </div>
-
-          {/* Left Icon */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark" icon={<CubeIcon />}>Button</Button>
-            <Button theme="dark" variant="outline" icon={<CubeIcon />}>Button</Button>
-            <Button theme="dark" variant="ghost" icon={<CubeIcon />}>Button</Button>
-            {/*DANGER BUTTON */}
-            <Button theme="dark" variant="danger" icon={<CubeIcon />}>Danger</Button>
-          </div>
-
-          {/* Right Icon */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button theme="dark" variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button theme="dark" variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            {/*DANGER BUTTON */}
-            <Button theme="dark" variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
-          </div>
-
-          {/* Icon Only */}
-          <div className="flex items-center gap-4">
-            <Button theme="dark" size="icon" aria-label="Cube"><CubeIcon /></Button>
-            <Button theme="dark" size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
-            <Button theme="dark" size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
-            {/*DANGER BUTTON*/}
-            <Button theme="dark" size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
-          </div>
-        </section>
-      </div>
     </main>
   )
 }
