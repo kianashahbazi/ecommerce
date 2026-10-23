@@ -1,3 +1,5 @@
+import Label from './typography/Label'
+import Text from './typography/Text'
 import type { CheckboxProps } from '../../types/kit/Checkboxes'
 
 const CheckIcon = () => (
@@ -68,14 +70,14 @@ export default function Checkbox({
           )}
           <div className="flex flex-col">
             {label && (
-              <span className={`text-sm font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+              <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
                 {label}
-              </span>
+              </Label>
             )}
             {description && (
-              <span className={`mt-1 text-xs ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
                 {description}
-              </span>
+              </Text>
             )}
           </div>
         </div>

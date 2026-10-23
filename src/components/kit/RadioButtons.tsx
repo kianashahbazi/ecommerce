@@ -1,3 +1,5 @@
+import Label from './typography/Label'
+import Text from './typography/Text'
 import type { RadioProps } from '../../types/kit/RadioButtons'
 
 const RadioDot = ({ theme }: { theme: 'light' | 'dark' }) => (
@@ -55,7 +57,7 @@ export default function Radio({
               {prefix}
             </div>
           )}
-          <span className="font-medium">{label}</span>
+          <Label>{label}</Label>
         </div>
       </label>
     )
@@ -79,13 +81,13 @@ export default function Radio({
             </div>
           )}
           <div className="flex flex-col">
-            <span className={`text-sm font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+            <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
               {label}
-            </span>
+            </Label>
             {description && (
-              <span className={`mt-1 text-xs leading-relaxed ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
                 {description}
-              </span>
+              </Text>
             )}
           </div>
         </div>
@@ -119,9 +121,9 @@ export default function Radio({
 
       <div className="flex flex-col">
         {label && (
-          <span className={`text-sm font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+          <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
             {label}
-          </span>
+          </Label>
         )}
       </div>
     </label>

@@ -1,3 +1,5 @@
+import Label from './typography/Label'
+import Text from './typography/Text'
 import type { ToggleProps } from '../../types/kit/Toggle'
 
 export default function Toggle({
@@ -40,13 +42,13 @@ export default function Toggle({
             </div>
           )}
           <div className="flex flex-col">
-            <span className={`text-sm font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+            <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
               {label}
-            </span>
+            </Label>
             {description && (
-              <span className={`mt-1 text-xs leading-relaxed ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
                 {description}
-              </span>
+              </Text>
             )}
           </div>
         </div>
@@ -63,9 +65,9 @@ export default function Toggle({
       {switchElement}
 
       {label && (
-        <span className={`text-sm font-medium ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+        <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
           {label}
-        </span>
+        </Label>
       )}
     </label>
   )
