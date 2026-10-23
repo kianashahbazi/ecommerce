@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Button from "./components/kit/Button";
 import Input from "./components/kit/Input";
-import Typography from "./components/kit/Typography";
+import { Heading1, Heading2, Label } from "./components/kit";
 import TextArea from "./components/kit/TextArea";
 import Select from "./components/kit/Select";
 import Tag from "./components/kit/Tag";
@@ -98,15 +98,12 @@ function App() {
   return (
     <main className="min-h-screen bg-white p-8 text-black font-sans">
       
-      <Typography variant="h1" className="mb-12 text-4xl md:text-5xl font-bold">
-        UI Kit
-      </Typography>
-
-      <Typography variant="h2" className="mb-8">Buttons</Typography>
+      <Heading1 className="mb-12">UI Kit</Heading1>
+      <Heading2 className="mb-8">Buttons</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
-          <h3 className="text-lg font-semibold">Light theme</h3>
+          <Label className="text-lg font-bold block">Light theme</Label>
 
           <div className="flex flex-wrap items-center gap-4">
             <Button>Button</Button>
@@ -138,7 +135,7 @@ function App() {
         </section>
 
         <section className="space-y-8 bg-black p-4 text-white rounded-lg">
-          <h3 className="text-lg font-semibold">Dark theme</h3>
+           <Label className="text-lg font-bold block text-white">Dark theme</Label>
 
           <div className="flex flex-wrap items-center gap-4">
             <Button theme="dark">Button</Button>
@@ -170,11 +167,11 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Inputs</Typography>
+      <Heading2 className="mb-8">Inputs</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
-          <h3 className="text-lg font-semibold mb-6">Light theme</h3>
+          <Label className="text-lg font-bold block mb-6">Light theme</Label>
           <Input placeholder="Placeholder" />
           <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
           <Input placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
@@ -184,7 +181,7 @@ function App() {
         </section>
 
         <section className="space-y-4 bg-black p-4 text-white rounded-lg">
-          <h3 className="text-lg font-semibold mb-6">Dark theme</h3>
+          <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
           <Input theme="dark" placeholder="Placeholder" />
           <Input theme="dark" placeholder="Placeholder" rightIcon={<QuestionIcon />} />
           <Input theme="dark" placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
@@ -194,21 +191,20 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Text Area</Typography>
+      <Heading2 className="mb-8">Text Area</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
-          <h3 className="text-lg font-semibold mb-6">Light theme</h3>
+          <Label className="text-lg font-bold block mb-6">Light theme</Label>
           <TextArea placeholder="Type your message..." rows={5} />
         </section>
 
         <section className="space-y-4 bg-black p-4 text-white rounded-lg">
-          <h3 className="text-lg font-semibold mb-6">Dark theme</h3>
+          <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
           <TextArea theme="dark" placeholder="Type your message..." rows={5} />
         </section>
       </div>
 
-
-      <Typography variant="h2" className="mb-8">Select</Typography>
+      <Heading2 className="mb-8">Select</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
@@ -240,7 +236,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Tags</Typography>
+      <Heading2 className="mb-8">Tags</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
@@ -258,7 +254,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Checkboxes</Typography>
+      <Heading2 className="mb-8">Checkboxes</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
@@ -327,7 +323,8 @@ function App() {
           </div>
         </section>
       </div>
-      <Typography variant="h2" className="mb-8">Radios</Typography>
+      
+      <Heading2 className="mb-8">Radios</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
@@ -393,7 +390,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Toggles</Typography>
+      <Heading2 className="mb-8">Toggles</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
@@ -441,7 +438,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Tooltips</Typography>
+      <Heading2 className="mb-8">Tooltips</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         
@@ -523,7 +520,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Slider Arrows</Typography>
+      <Heading2 className="mb-8">Slider Arrows</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="flex items-center gap-4 bg-white p-4 border rounded-lg border-neutral-200">
           <SliderArrow direction="left" />
@@ -535,7 +532,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Tabs</Typography>
+      <Heading2 className="mb-8">Tabs</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="flex items-center bg-white p-4 border rounded-lg border-neutral-200">
           <Tabs 
@@ -554,7 +551,7 @@ function App() {
         </section>
       </div>
 
-      <Typography variant="h2" className="mb-8">Filters</Typography>
+      <Heading2 className="mb-8">Filters</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="flex items-center bg-white p-4 border rounded-lg border-neutral-200">
           <Filters 
