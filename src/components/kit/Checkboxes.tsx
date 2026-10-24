@@ -1,18 +1,7 @@
 import Label from './typography/Label'
 import Text from './typography/Text'
 import type { CheckboxProps } from '../../types/kit/Checkboxes'
-
-const CheckIcon = () => (
-  <svg className="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-)
-
-const CheckIconDark = () => (
-  <svg className="h-3 w-3 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-)
+import CheckIcon from '../../assets/icons/CheckIcon';
 
 export default function Checkbox({
   theme = 'light',
@@ -25,17 +14,16 @@ export default function Checkbox({
   ...props
 }: CheckboxProps) {
 
-    const wrapperStyles = isCard
+  const wrapperStyles = isCard
     ? `flex gap-4 p-4 border transition-colors ${
         theme === 'light'
-          ? 'border-neutral-200 bg-white'
-          : 'border-neutral-800 bg-black'
+          ? 'border-border-light bg-surface-light'
+          : 'border-border-dark bg-surface-dark text-white'
       } ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${className}`
     : `inline-flex items-start gap-3 ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'} ${className}`
 
   return (
     <label className={wrapperStyles}>
-      {}
       <input
         type="checkbox"
         className="peer sr-only"
@@ -43,39 +31,36 @@ export default function Checkbox({
         {...props}
       />
 
-      {}
       <div
         className={`flex mt-0.5 h-5 w-5 shrink-0 items-center justify-center border transition-colors
           ${isCard ? 'order-last ml-auto' : ''}
           ${
             theme === 'light'
-              ? 'border-neutral-400 bg-white peer-checked:border-black peer-checked:bg-black'
-              : 'border-neutral-600 bg-black peer-checked:border-white peer-checked:bg-white'
+              ? 'border-neutral-light bg-surface-light peer-checked:border-primary peer-checked:bg-primary'
+              : 'border-border-dark bg-surface-dark peer-checked:border-white peer-checked:bg-white'
           }
         `}
       >
-        {}
         <div className="hidden peer-checked:block">
-          {theme === 'light' ? <CheckIcon /> : <CheckIconDark />}
+          <CheckIcon className={`w-3 h-3 ${theme === 'light' ? 'text-white' : 'text-black'}`} />
         </div>
       </div>
 
-      {}
       {(label || description || icon) && (
         <div className="flex flex-1 gap-3">
           {icon && (
-            <div className={`flex shrink-0 items-center justify-center ${theme === 'light' ? 'text-black' : 'text-white'}`}>
+            <div className={`flex shrink-0 items-center justify-center ${theme === 'light' ? 'text-primary' : 'text-white'}`}>
               {icon}
             </div>
           )}
           <div className="flex flex-col">
             {label && (
-              <Label className={theme === 'light' ? 'text-black' : 'text-white'}>
+              <Label className={theme === 'light' ? 'text-primary' : 'text-white'}>
                 {label}
               </Label>
             )}
             {description && (
-              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral' : 'text-neutral-light'}`}>
                 {description}
               </Text>
             )}

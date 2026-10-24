@@ -12,11 +12,11 @@ export default function Filters({ options, activeValue, onChange, theme = 'light
             className={`px-3 py-1.5 text-sm transition-colors ${
               isActive
                 ? theme === 'light'
-                  ? 'border border-neutral-400 bg-white text-black'
-                  : 'border border-neutral-600 bg-black text-white'
+                  ? 'border border-border-light bg-surface-light text-black'
+                  : 'border border-border-dark bg-surface-dark text-white'
                 : theme === 'light'
-                ? 'border border-transparent text-neutral-500 hover:text-black'
-                : 'border border-transparent text-neutral-400 hover:text-white'
+                ? 'border border-transparent text-neutral hover:text-black'
+                : 'border border-transparent text-neutral-light hover:text-white'
             }`}
           >
             {opt.label}

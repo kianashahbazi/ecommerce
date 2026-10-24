@@ -1,12 +1,16 @@
 export { default as Button } from './Button';
 export { default as Input } from './Input';
+
 export { default as Heading1 } from './typography/Heading1';
 export { default as Heading2 } from './typography/Heading2';
 export { default as Heading3 } from './typography/Heading3';
 export { default as Heading4 } from './typography/Heading4';
 export { default as Heading5 } from './typography/Heading5';
+export { default as Heading6 } from './typography/Heading6';
+
 export { default as Label } from './typography/Label';
 export { default as Text } from './typography/Text';
+
 export { default as TextArea } from './TextArea';
 export { default as Select } from './Select';
 export { default as Tag } from './Tag';

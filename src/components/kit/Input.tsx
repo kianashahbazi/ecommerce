@@ -5,14 +5,14 @@ const baseStyles =
 
 const themes = {
   light: {
-    wrapper: 'border-neutral-300 bg-white text-black focus-within:border-black',
-    prefix: 'border-neutral-300 bg-neutral-50 text-neutral-600',
-    input: 'placeholder:text-neutral-400',
+    wrapper: 'border-border-light bg-surface-light text-black focus-within:border-primary',
+    prefix: 'border-border-light bg-secondary text-neutral',
+    input: 'placeholder:text-neutral-light',
   },
   dark: {
-    wrapper: 'border-neutral-700 bg-black text-white focus-within:border-white',
-    prefix: 'border-neutral-700 bg-neutral-900 text-neutral-400',
-    input: 'placeholder:text-neutral-500',
+    wrapper: 'border-border-dark bg-surface-dark text-white focus-within:border-white',
+    prefix: 'border-border-dark bg-neutral-darker text-neutral-light',
+    input: 'placeholder:text-neutral',
   },
 }
 
@@ -36,45 +36,22 @@ export default function Input({
 
   return (
     <div
-      className={[
-        baseStyles,
-        currentTheme.wrapper,
-        sizes[size],
-        disabled ? 'cursor-not-allowed opacity-50' : '',
-        className,
-      ]
+      className={[baseStyles, currentTheme.wrapper, sizes[size], disabled ? 'cursor-not-allowed opacity-50' : '', className]
         .filter(Boolean)
         .join(' ')}
     >
-      {}
       {prefix && (
-        <div
-          className={`flex h-full items-center border-r px-3 font-medium ${currentTheme.prefix}`}
-        >
+        <div className={`flex h-full items-center border-r px-3 font-medium ${currentTheme.prefix}`}>
           {prefix}
         </div>
       )}
-
-      {}
-      {leftIcon && (
-        <div className="flex shrink-0 items-center justify-center pl-3">
-          {leftIcon}
-        </div>
-      )}
-
-      {}
+      {leftIcon && <div className="flex shrink-0 items-center justify-center pl-3">{leftIcon}</div>}
       <input
         className={`h-full w-full flex-1 bg-transparent px-3 outline-none disabled:cursor-not-allowed ${currentTheme.input}`}
         disabled={disabled}
         {...props}
       />
-
-      {}
-      {rightIcon && (
-        <div className="flex shrink-0 items-center justify-center pr-3">
-          {rightIcon}
-        </div>
-      )}
+      {rightIcon && <div className="flex shrink-0 items-center justify-center pr-3">{rightIcon}</div>}
     </div>
   )
 }

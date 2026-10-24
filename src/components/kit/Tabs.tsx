@@ -2,11 +2,7 @@ import type { TabsProps } from '../../types/kit/Tabs'
 
 export default function Tabs({ options, value, onChange, theme = 'light' }: TabsProps) {
   return (
-    <div
-      className={`inline-flex border ${
-        theme === 'light' ? 'border-neutral-400 bg-white' : 'border-neutral-600 bg-black'
-      }`}
-    >
+    <div className={`inline-flex border ${theme === 'light' ? 'border-border-light bg-surface-light' : 'border-border-dark bg-surface-dark'}`}>
       {options.map((opt) => {
         const isActive = opt.value === value
         return (
@@ -16,11 +12,11 @@ export default function Tabs({ options, value, onChange, theme = 'light' }: Tabs
             className={`px-4 py-2 text-sm font-medium transition-colors ${
               isActive
                 ? theme === 'light'
-                  ? 'border border-black bg-white text-black'
-                  : 'border border-white bg-black text-white'
+                  ? 'border border-primary bg-primary text-white'
+                  : 'border border-white bg-white text-black'
                 : theme === 'light'
-                ? 'border border-transparent text-neutral-500 hover:text-black'
-                : 'border border-transparent text-neutral-400 hover:text-white'
+                ? 'border border-transparent text-neutral hover:text-black'
+                : 'border border-transparent text-neutral-light hover:text-white'
             }`}
           >
             {opt.label}

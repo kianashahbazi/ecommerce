@@ -1,6 +1,7 @@
 import Label from './typography/Label'
 import Text from './typography/Text'
 import type { RadioProps } from '../../types/kit/RadioButtons'
+import CheckIcon from '../../assets/icons/CheckIcon'; 
 
 const RadioDot = ({ theme }: { theme: 'light' | 'dark' }) => (
   <div
@@ -10,17 +11,6 @@ const RadioDot = ({ theme }: { theme: 'light' | 'dark' }) => (
   />
 )
 
-const CheckIcon = ({ theme }: { theme: 'light' | 'dark' }) => (
-  <svg
-    className={`h-3 w-3 hidden peer-checked:block ${theme === 'light' ? 'text-white' : 'text-black'}`}
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={3}
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-)
 
 export default function Radio({
   theme = 'light',
@@ -42,16 +32,16 @@ export default function Radio({
         <div
           className={`flex items-center gap-3 border px-3 py-1.5 text-sm transition-colors ${
             theme === 'light'
-              ? 'border-neutral-300 bg-white text-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white'
-              : 'border-neutral-700 bg-black text-white peer-checked:border-white peer-checked:bg-white peer-checked:text-black'
+              ? 'border-border-light bg-surface-light text-black peer-checked:border-primary peer-checked:bg-primary peer-checked:text-white'
+              : 'border-border-dark bg-surface-dark text-white peer-checked:border-white peer-checked:bg-white peer-checked:text-black'
           }`}
         >
           {prefix && (
             <div
               className={`flex h-6 w-6 items-center justify-center border text-xs font-bold ${
                 theme === 'light'
-                  ? 'border-neutral-300 bg-white text-black peer-checked:border-white peer-checked:bg-black peer-checked:text-white'
-                  : 'border-neutral-700 bg-black text-white peer-checked:border-black peer-checked:bg-white peer-checked:text-black'
+                  ? 'border-border-light bg-surface-light text-black peer-checked:border-white peer-checked:bg-primary peer-checked:text-white'
+                  : 'border-border-dark bg-surface-dark text-white peer-checked:border-black peer-checked:bg-white peer-checked:text-black'
               }`}
             >
               {prefix}
@@ -68,8 +58,8 @@ export default function Radio({
       <label
         className={`relative flex items-start gap-4 border p-4 transition-colors ${isDisabled} ${className} ${
           theme === 'light' 
-            ? 'border-neutral-200 bg-white peer-checked:border-black' 
-            : 'border-neutral-800 bg-black peer-checked:border-white'
+            ? 'border-border-light bg-surface-light peer-checked:border-primary' 
+            : 'border-border-dark bg-surface-dark peer-checked:border-white'
         }`}
       >
         <input type="radio" className="peer sr-only" disabled={disabled} {...props} />
@@ -85,7 +75,7 @@ export default function Radio({
               {label}
             </Label>
             {description && (
-              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral-500' : 'text-neutral-400'}`}>
+              <Text className={`mt-1 ${theme === 'light' ? 'text-neutral' : 'text-neutral-light'}`}>
                 {description}
               </Text>
             )}
@@ -95,11 +85,11 @@ export default function Radio({
         <div
           className={`absolute right-4 top-4 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
             theme === 'light'
-              ? 'border-neutral-400 bg-white peer-checked:border-black peer-checked:bg-black'
-              : 'border-neutral-600 bg-black peer-checked:border-white peer-checked:bg-white'
+              ? 'border-neutral-light bg-surface-light peer-checked:border-primary peer-checked:bg-primary'
+              : 'border-border-dark bg-surface-dark peer-checked:border-white peer-checked:bg-white'
           }`}
         >
-          <CheckIcon theme={theme} />
+          <CheckIcon className={`w-3 h-3 ${theme === 'light' ? 'text-white' : 'text-black'}`} />
         </div>
       </label>
     )
@@ -112,8 +102,8 @@ export default function Radio({
       <div
         className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
           theme === 'light'
-            ? 'border-neutral-400 bg-white peer-checked:border-black peer-checked:bg-black'
-            : 'border-neutral-600 bg-black peer-checked:border-white peer-checked:bg-white'
+            ? 'border-neutral-light bg-surface-light peer-checked:border-primary peer-checked:bg-primary'
+            : 'border-border-dark bg-surface-dark peer-checked:border-white peer-checked:bg-white'
         }`}
       >
         <RadioDot theme={theme} />
