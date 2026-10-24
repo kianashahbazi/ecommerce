@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
+import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from './assets/icons';
+
 import Button from "./components/kit/Button";
 import Input from "./components/kit/Input";
-import { Heading1, Heading2, Label } from "./components/kit";
+import { Heading1, Heading2, Heading6, Label, Text } from "./components/kit"; 
 import TextArea from "./components/kit/TextArea";
 import Select from "./components/kit/Select";
 import Tag from "./components/kit/Tag";
@@ -14,95 +16,45 @@ import SliderArrow from "./components/kit/SliderArrow";
 import Tabs from "./components/kit/Tabs";
 import Filters from "./components/kit/Filters";
 
-const CubeIcon = () => (
-  <span aria-hidden="true" className="text-base leading-none">◈</span>
-)
-
-const SearchIcon = () => (
-  <svg className="h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-  </svg>
-)
-
-const CreditCardIcon = () => (
-  <svg className="h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-  </svg>
-)
-
-const QuestionIcon = () => (
-  <svg className="h-4 w-4 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-)
-
-const ChevronDownIcon = () => (
-  <svg className="h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-  </svg>
-)
-
-const CircleDotIcon = () => (
-  <svg className="h-4 w-4 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-)
-
-const TagCardIcon = () => (
-  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-  </svg>
-)
-
-const InfoIcon = () => (
-  <svg className="h-5 w-5 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
-)
-
-const ImageIcon = () => (
-  <svg className="h-8 w-8 text-neutral-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-  </svg>
-)
-
 function App() {
-
   const [activeTab, setActiveTab] = useState('monthly')
   const [activeFilter, setActiveFilter] = useState('all')
 
   const textContent = (
-    <div className="w-48 p-3 text-xs leading-relaxed">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <div className="w-48 p-3 text-inherit">
+      <Text size="sm" className="text-inherit leading-relaxed">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </Text>
     </div>
   )
 
   const cardContent = (
-    <div className="w-64 overflow-hidden">
-      <div className="flex h-32 w-full items-center justify-center bg-neutral-300">
+    <div className="w-64 overflow-hidden bg-surface-light">
+      <div className="flex h-32 w-full items-center justify-center bg-neutral-lighter">
         <ImageIcon />
       </div>
       <div className="p-4 text-left">
-        <h4 className="text-sm font-bold mb-1">Tooltip Title</h4>
-        <p className="text-xs leading-relaxed mb-4 text-neutral-500">
+        <Heading6 className="mb-1">Tooltip Title</Heading6>
+        <Text size="sm" className="mb-4 text-neutral">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </p>
-        <a href="#" className="text-xs font-semibold flex items-center gap-1 hover:underline">
+        </Text>
+        <a href="#" className="text-xs font-semibold flex items-center gap-1 hover:underline text-primary">
           Find out more
-          <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+          <ArrowRightIcon className="w-3 h-3" />
         </a>
       </div>
     </div>
   )
 
   return (
-    <main className="min-h-screen bg-white p-8 text-black font-sans">
+    <main className="min-h-screen bg-surface-light p-8 text-primary font-sans">
       
       <Heading1 className="mb-12">UI Kit</Heading1>
       <Heading2 className="mb-8">Buttons</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
+
+        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <Label className="text-lg font-bold block">Light theme</Label>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -134,7 +86,7 @@ function App() {
           </div>
         </section>
 
-        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
            <Label className="text-lg font-bold block text-white">Dark theme</Label>
 
           <div className="flex flex-wrap items-center gap-4">
@@ -170,7 +122,7 @@ function App() {
       <Heading2 className="mb-8">Inputs</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
           <Label className="text-lg font-bold block mb-6">Light theme</Label>
           <Input placeholder="Placeholder" />
           <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
@@ -180,7 +132,7 @@ function App() {
           <Input placeholder="www.relume.io" prefix="http://" />
         </section>
 
-        <section className="space-y-4 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
           <Input theme="dark" placeholder="Placeholder" />
           <Input theme="dark" placeholder="Placeholder" rightIcon={<QuestionIcon />} />
@@ -193,12 +145,12 @@ function App() {
 
       <Heading2 className="mb-8">Text Area</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
           <Label className="text-lg font-bold block mb-6">Light theme</Label>
           <TextArea placeholder="Type your message..." rows={5} />
         </section>
 
-        <section className="space-y-4 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
           <TextArea theme="dark" placeholder="Type your message..." rows={5} />
         </section>
@@ -207,7 +159,7 @@ function App() {
       <Heading2 className="mb-8">Select</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
           <Select defaultValue="">
             <option value="" disabled hidden>Select one...</option>
             <option value="1">React</option>
@@ -221,7 +173,7 @@ function App() {
           </Select>
         </section>
 
-        <section className="space-y-4 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <Select theme="dark" defaultValue="">
             <option value="" disabled hidden>Select one...</option>
             <option value="1">React</option>
@@ -239,14 +191,14 @@ function App() {
       <Heading2 className="mb-8">Tags</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex flex-wrap gap-4">
             <Tag>Category</Tag>
             <Tag icon={<TagCardIcon />}>Category</Tag>
           </div>
         </section>
 
-        <section className="space-y-4 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex flex-wrap gap-4">
             <Tag theme="dark">Category</Tag>
             <Tag theme="dark" icon={<TagCardIcon />}>Category</Tag>
@@ -257,7 +209,7 @@ function App() {
       <Heading2 className="mb-8">Checkboxes</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex items-center gap-6">
             <Checkboxes label="Checkbox" />
             <Checkboxes label="Checkbox" defaultChecked />
@@ -279,17 +231,14 @@ function App() {
             />
           </div>
 
+
           <div className="flex gap-2 pt-4">
-            <button className="border border-neutral-300 px-4 py-1.5 text-xs font-medium text-black hover:bg-neutral-50">
-              Option one
-            </button>
-            <button className="bg-black border border-black px-4 py-1.5 text-xs font-medium text-white">
-              Option one
-            </button>
+            <Button size="sm" variant="outline">Option one</Button>
+            <Button size="sm" variant="solid">Option one</Button>
           </div>
         </section>
 
-        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex items-center gap-6">
             <Checkboxes theme="dark" label="Checkbox" />
             <Checkboxes theme="dark" label="Checkbox" defaultChecked />
@@ -314,12 +263,8 @@ function App() {
           </div>
 
           <div className="flex gap-2 pt-4">
-            <button className="border border-neutral-700 px-4 py-1.5 text-xs font-medium text-white hover:bg-neutral-900">
-              Option one
-            </button>
-            <button className="bg-white border border-white px-4 py-1.5 text-xs font-medium text-black">
-              Option one
-            </button>
+            <Button theme="dark" size="sm" variant="outline">Option one</Button>
+            <Button theme="dark" size="sm" variant="solid">Option one</Button>
           </div>
         </section>
       </div>
@@ -327,7 +272,7 @@ function App() {
       <Heading2 className="mb-8">Radios</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex items-center gap-6">
             <RadioButtons name="radio-1" label="Radio" />
             <RadioButtons name="radio-1" label="Radio" defaultChecked />
@@ -357,7 +302,7 @@ function App() {
           </div>
         </section>
 
-        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex items-center gap-6">
             <RadioButtons theme="dark" name="radio-4" label="Radio" />
             <RadioButtons theme="dark" name="radio-4" label="Radio" defaultChecked />
@@ -393,7 +338,7 @@ function App() {
       <Heading2 className="mb-8">Toggles</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex items-center gap-6">
             <Toggle label="Option one" />
             <Toggle label="Option one" defaultChecked />
@@ -414,7 +359,7 @@ function App() {
           </div>
         </section>
 
-        <section className="space-y-8 bg-black p-4 text-white rounded-lg">
+        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex items-center gap-6">
             <Toggle theme="dark" label="Option one" />
             <Toggle theme="dark" label="Option one" defaultChecked />
@@ -442,91 +387,58 @@ function App() {
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         
-        <section className="space-y-16 bg-white p-8 border rounded-lg border-neutral-200">
-
+        <section className="space-y-16 bg-surface-light p-8 border rounded-lg border-border-light">
           <div className="flex justify-around">
-            <Tooltip position="top" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip position="bottom" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
+            <Tooltip position="bottom" content={textContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around">
-            <Tooltip position="left" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip position="right" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip position="left" content={textContent}><InfoIcon /></Tooltip>
+            <Tooltip position="right" content={textContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around pt-10">
-            <Tooltip position="bottom" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip position="right" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip position="bottom" content={cardContent}><InfoIcon /></Tooltip>
+            <Tooltip position="right" content={cardContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around pt-10">
-            <Tooltip position="top" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip position="left" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip position="top" content={cardContent}><InfoIcon /></Tooltip>
+            <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
           </div>
         </section>
 
-        <section className="space-y-16 bg-black p-8 text-white rounded-lg">
+        <section className="space-y-16 bg-surface-dark p-8 text-white rounded-lg border border-border-dark">
           <div className="flex justify-around text-white">
-            <Tooltip theme="dark" position="top" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip theme="dark" position="bottom" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip theme="dark" position="top" content={textContent}><InfoIcon /></Tooltip>
+            <Tooltip theme="dark" position="bottom" content={textContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around text-white">
-            <Tooltip theme="dark" position="left" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip theme="dark" position="right" content={textContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip theme="dark" position="left" content={textContent}><InfoIcon /></Tooltip>
+            <Tooltip theme="dark" position="right" content={textContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around pt-10 text-white">
-            <Tooltip theme="dark" position="bottom" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip theme="dark" position="right" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip theme="dark" position="bottom" content={cardContent}><InfoIcon /></Tooltip>
+            <Tooltip theme="dark" position="right" content={cardContent}><InfoIcon /></Tooltip>
           </div>
 
           <div className="flex justify-around pt-10 text-white">
-            <Tooltip theme="dark" position="top" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
-            <Tooltip theme="dark" position="left" content={cardContent}>
-              <InfoIcon />
-            </Tooltip>
+            <Tooltip theme="dark" position="top" content={cardContent}><InfoIcon /></Tooltip>
+            <Tooltip theme="dark" position="left" content={cardContent}><InfoIcon /></Tooltip>
           </div>
         </section>
       </div>
 
       <Heading2 className="mb-8">Slider Arrows</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center gap-4 bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="flex items-center gap-4 bg-surface-light p-4 border rounded-lg border-border-light">
           <SliderArrow direction="left" />
           <SliderArrow direction="right" />
         </section>
-        <section className="flex items-center gap-4 bg-black p-4 text-white rounded-lg">
+        <section className="flex items-center gap-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <SliderArrow theme="dark" direction="left" />
           <SliderArrow theme="dark" direction="right" />
         </section>
@@ -534,14 +446,14 @@ function App() {
 
       <Heading2 className="mb-8">Tabs</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
           <Tabs 
             options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
             value={activeTab}
             onChange={setActiveTab}
           />
         </section>
-        <section className="flex items-center bg-black p-4 text-white rounded-lg">
+        <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <Tabs 
             theme="dark"
             options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
@@ -553,7 +465,7 @@ function App() {
 
       <Heading2 className="mb-8">Filters</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center bg-white p-4 border rounded-lg border-neutral-200">
+        <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
           <Filters 
             options={[
               { label: 'View all', value: 'all' },
@@ -566,7 +478,7 @@ function App() {
             onChange={setActiveFilter}
           />
         </section>
-        <section className="flex items-center bg-black p-4 text-white rounded-lg">
+        <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <Filters 
             theme="dark"
             options={[
