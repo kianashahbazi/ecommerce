@@ -1,4 +1,4 @@
-export default function ArrowRightIcon({ className = "w-4 h-4" }: { className?: string }) {
+export function ArrowRightIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

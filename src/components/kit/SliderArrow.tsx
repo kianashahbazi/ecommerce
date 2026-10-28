@@ -1,8 +1,8 @@
-import type { SliderArrowProps } from '../../types/kit/SliderArrow'
-import ArrowLeftIcon from '../../assets/icons/ArrowLeftIcon'
-import ArrowRightIcon from '../../assets/icons/ArrowRightIcon'
+import { sliderArrowStyles } from '../../constants'
+import { ArrowLeftIcon, ArrowRightIcon } from '../../assets'
+import type { SliderArrowProps } from '../../types'
 
-export default function SliderArrow({
+export function SliderArrow({
   direction,
   theme = 'light',
   className = '',
@@ -10,19 +10,11 @@ export default function SliderArrow({
 }: SliderArrowProps) {
   return (
     <button
-      className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors ${
-        theme === 'light'
-          ? 'border-neutral-light text-black hover:bg-secondary'
-          : 'border-border-dark text-white hover:bg-surface-dark'
-      } ${className}`}
+      className={`${sliderArrowStyles.base} ${sliderArrowStyles.theme[theme]} ${className}`.trim()}
       aria-label={`Scroll ${direction}`}
       {...props}
     >
-      {direction === 'left' ? (
-        <ArrowLeftIcon />
-      ) : (
-        <ArrowRightIcon />
-      )}
+      {direction === 'left' ? <ArrowLeftIcon /> : <ArrowRightIcon />}
     </button>
   )
 }

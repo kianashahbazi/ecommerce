@@ -1,20 +1,8 @@
 import { useState } from 'react';
 
-import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from './assets/icons';
+import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from './assets';
 
-import Button from "./components/kit/Button";
-import Input from "./components/kit/Input";
-import { Heading1, Heading2, Heading6, Label, Text } from "./components/kit"; 
-import TextArea from "./components/kit/TextArea";
-import Select from "./components/kit/Select";
-import Tag from "./components/kit/Tag";
-import Checkboxes from "./components/kit/Checkboxes"; 
-import RadioButtons from "./components/kit/RadioButtons";
-import Toggle from "./components/kit/Toggle";
-import Tooltip from "./components/kit/Tooltip";
-import SliderArrow from "./components/kit/SliderArrow";
-import Tabs from "./components/kit/Tabs";
-import Filters from "./components/kit/Filters";
+import {Button,Checkbox,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,Tooltip,} from './components'
 
 function App() {
   const [activeTab, setActiveTab] = useState('monthly')
@@ -206,23 +194,23 @@ function App() {
         </section>
       </div>
 
-      <Heading2 className="mb-8">Checkboxes</Heading2>
+      <Heading2 className="mb-8">Checkbox</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex items-center gap-6">
-            <Checkboxes label="Checkbox" />
-            <Checkboxes label="Checkbox" defaultChecked />
+            <Checkbox label="Checkbox" />
+            <Checkbox label="Checkbox" defaultChecked />
           </div>
 
           <div className="space-y-4">
-            <Checkboxes 
+            <Checkbox 
               isCard
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <Checkboxes 
+            <Checkbox 
               isCard
               defaultChecked
               icon={<CubeIcon />}
@@ -240,19 +228,19 @@ function App() {
 
         <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex items-center gap-6">
-            <Checkboxes theme="dark" label="Checkbox" />
-            <Checkboxes theme="dark" label="Checkbox" defaultChecked />
+            <Checkbox theme="dark" label="Checkbox" />
+            <Checkbox theme="dark" label="Checkbox" defaultChecked />
           </div>
 
           <div className="space-y-4">
-            <Checkboxes 
+            <Checkbox 
               theme="dark"
               isCard
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <Checkboxes 
+            <Checkbox 
               theme="dark"
               isCard
               defaultChecked
@@ -274,19 +262,19 @@ function App() {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
           <div className="flex items-center gap-6">
-            <RadioButtons name="radio-1" label="Radio" />
-            <RadioButtons name="radio-1" label="Radio" defaultChecked />
+            <RadioButton name="radio-1" label="Radio" />
+            <RadioButton name="radio-1" label="Radio" defaultChecked />
           </div>
 
           <div className="space-y-4">
-            <RadioButtons 
+            <RadioButton 
               name="radio-2"
               layout="card"
               icon={<CubeIcon />}
               label="Radio button"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <RadioButtons 
+            <RadioButton 
               name="radio-2"
               layout="card"
               defaultChecked
@@ -297,19 +285,19 @@ function App() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <RadioButtons name="radio-3" layout="button" prefix="A" label="Website design" />
-            <RadioButtons name="radio-3" layout="button" prefix="A" label="Website design" defaultChecked />
+            <RadioButton name="radio-3" layout="button" prefix="A" label="Website design" />
+            <RadioButton name="radio-3" layout="button" prefix="A" label="Website design" defaultChecked />
           </div>
         </section>
 
         <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
           <div className="flex items-center gap-6">
-            <RadioButtons theme="dark" name="radio-4" label="Radio" />
-            <RadioButtons theme="dark" name="radio-4" label="Radio" defaultChecked />
+            <RadioButton theme="dark" name="radio-4" label="Radio" />
+            <RadioButton theme="dark" name="radio-4" label="Radio" defaultChecked />
           </div>
 
           <div className="space-y-4">
-            <RadioButtons
+            <RadioButton
               theme="dark"
               name="radio-5"
               layout="card"
@@ -317,7 +305,7 @@ function App() {
               label="Radio button"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <RadioButtons 
+            <RadioButton 
               theme="dark"
               name="radio-5"
               layout="card"
@@ -329,8 +317,8 @@ function App() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <RadioButtons theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" />
-            <RadioButtons theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" defaultChecked />
+            <RadioButton theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" />
+            <RadioButton theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" defaultChecked />
           </div>
         </section>
       </div>
@@ -498,4 +486,4 @@ function App() {
   )
 }
 
-export default App
+export { App }

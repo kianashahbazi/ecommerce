@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-export default function Text({ 
+export function Text({ 
   children, 
   size = 'base', 
   weight = 'normal',

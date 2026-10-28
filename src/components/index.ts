@@ -1,3 +1,3 @@
-export * from './kit/index.ts';
+export * from './kit';
 export * from './modules';
 export * from './containers';
