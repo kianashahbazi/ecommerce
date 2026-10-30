@@ -8,4 +8,4 @@ export const filtersStyles = {
     light: 'border border-transparent text-neutral hover:text-black',
     dark: 'border border-transparent text-neutral-light hover:text-white',
   },
-} as const
+}

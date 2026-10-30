@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from './assets';
 
-import {Button,Checkbox,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,Tooltip,} from './components'
+import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,} from './components'
 
 function App() {
   const [activeTab, setActiveTab] = useState('monthly')
@@ -195,182 +195,272 @@ function App() {
       </div>
 
       <Heading2 className="mb-8">Checkbox</Heading2>
-      
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
         <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+
           <div className="flex items-center gap-6">
-            <Checkbox label="Checkbox" />
-            <Checkbox label="Checkbox" defaultChecked />
+
+            <label className="inline-flex items-center gap-2 cursor-pointer">
+              <Checkbox />
+              <span>Checkbox</span>
+            </label>
+
+            <label className="inline-flex items-center gap-2 cursor-pointer">
+              <Checkbox defaultChecked />
+              <span>Checkbox</span>
+            </label>
           </div>
 
           <div className="space-y-4">
-            <Checkbox 
-              isCard
+
+            <CheckboxCard
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <Checkbox 
-              isCard
+
+            <CheckboxCard
               defaultChecked
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
           </div>
-
 
           <div className="flex gap-2 pt-4">
             <Button size="sm" variant="outline">Option one</Button>
             <Button size="sm" variant="solid">Option one</Button>
           </div>
+
         </section>
 
+
         <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+
           <div className="flex items-center gap-6">
-            <Checkbox theme="dark" label="Checkbox" />
-            <Checkbox theme="dark" label="Checkbox" defaultChecked />
+
+            <label className="inline-flex items-center gap-2 cursor-pointer">
+              <Checkbox theme="dark" />
+              <span>Checkbox</span>
+            </label>
+
+            <label className="inline-flex items-center gap-2 cursor-pointer">
+              <Checkbox theme="dark" defaultChecked />
+              <span>Checkbox</span>
+            </label>
+
           </div>
 
           <div className="space-y-4">
-            <Checkbox 
+
+            <CheckboxCard
               theme="dark"
-              isCard
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
-            <Checkbox 
+
+            <CheckboxCard
               theme="dark"
-              isCard
               defaultChecked
               icon={<CubeIcon />}
               label="Checkbox"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
             />
+
           </div>
 
           <div className="flex gap-2 pt-4">
             <Button theme="dark" size="sm" variant="outline">Option one</Button>
             <Button theme="dark" size="sm" variant="solid">Option one</Button>
           </div>
+
         </section>
+
       </div>
       
       <Heading2 className="mb-8">Radios</Heading2>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
+          <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+
+            <div className="flex items-center gap-6">
+
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <RadioButton name="radio-1" />
+                <span>Radio</span>
+              </label>
+
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <RadioButton name="radio-1" defaultChecked />
+                <span>Radio</span>
+              </label>
+
+            </div>
+
+            <div className="space-y-4">
+
+              <RadioButtonCard
+                name="radio-2"
+                icon={<CubeIcon />}
+                label="Radio button"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+
+              <RadioButtonCard
+                name="radio-2"
+                defaultChecked
+                icon={<CubeIcon />}
+                label="Radio button"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+
+            </div>
+
+            <div className="flex gap-4 pt-4">
+
+              <RadioButton
+                name="radio-3"
+                layout="button"
+                prefix="A"
+                label="Website design"
+              />
+
+              <RadioButton
+                name="radio-3"
+                layout="button"
+                prefix="A"
+                label="Website design"
+                defaultChecked
+              />
+
+            </div>
+
+          </section>
+
+          <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+
+            <div className="flex items-center gap-6">
+
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <RadioButton theme="dark" name="radio-4" />
+                <span>Radio</span>
+              </label>
+
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <RadioButton theme="dark" name="radio-4" defaultChecked />
+                <span>Radio</span>
+              </label>
+
+            </div>
+
+            <div className="space-y-4">
+              <RadioButtonCard
+                theme="dark"
+                name="radio-5"
+                icon={<CubeIcon />}
+                label="Radio button"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+
+              <RadioButtonCard
+                theme="dark"
+                name="radio-5"
+                defaultChecked
+                icon={<CubeIcon />}
+                label="Radio button"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+            </div>
+
+            <div className="flex gap-4 pt-4">
+
+              <RadioButton
+                theme="dark"
+                name="radio-6"
+                layout="button"
+                prefix="A"
+                label="Website design"
+              />
+
+              <RadioButton
+                theme="dark"
+                name="radio-6"
+                layout="button"
+                prefix="A"
+                label="Website design"
+                defaultChecked
+              />
+            </div>
+          </section>
+        </div>
+
+
+        <Heading2 className="mb-8">Toggles</Heading2>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+            <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+              <div className="flex items-center gap-6">
+                <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <Toggle />
+                  <span>Option one</span>
+                </label>
+
+                <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <Toggle defaultChecked />
+                  <span>Option one</span>
+                </label>
+              </div>
+
+              <div className="space-y-4 pt-4">
+
+                <ToggleCard
+                  label="Toggle checkbox"
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+                />
+
+                <ToggleCard
+                  defaultChecked
+                  label="Toggle checkbox"
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+                  />
+              </div>
+            </section>
+            <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+              <div className="flex items-center gap-6">
+                <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <Toggle theme="dark" />
+                  <span>Option one</span>
+                </label>
+
+                <label className="inline-flex items-center gap-2 cursor-pointer">
+                  <Toggle theme="dark" defaultChecked />
+                  <span>Option one</span>
+                </label>
+              </div>
+
+              <div className="space-y-4 pt-4">
+
+                <ToggleCard
+                  theme="dark"
+                  label="Toggle checkbox"
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+                />
+
+                <ToggleCard
+                  theme="dark"
+                  defaultChecked
+                  label="Toggle checkbox"
+                  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
+                />
+              </div>
+            </section>
+
+          </div>
+
       
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
-          <div className="flex items-center gap-6">
-            <RadioButton name="radio-1" label="Radio" />
-            <RadioButton name="radio-1" label="Radio" defaultChecked />
-          </div>
-
-          <div className="space-y-4">
-            <RadioButton 
-              name="radio-2"
-              layout="card"
-              icon={<CubeIcon />}
-              label="Radio button"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-            <RadioButton 
-              name="radio-2"
-              layout="card"
-              defaultChecked
-              icon={<CubeIcon />}
-              label="Radio button"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-          </div>
-
-          <div className="flex gap-4 pt-4">
-            <RadioButton name="radio-3" layout="button" prefix="A" label="Website design" />
-            <RadioButton name="radio-3" layout="button" prefix="A" label="Website design" defaultChecked />
-          </div>
-        </section>
-
-        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <div className="flex items-center gap-6">
-            <RadioButton theme="dark" name="radio-4" label="Radio" />
-            <RadioButton theme="dark" name="radio-4" label="Radio" defaultChecked />
-          </div>
-
-          <div className="space-y-4">
-            <RadioButton
-              theme="dark"
-              name="radio-5"
-              layout="card"
-              icon={<CubeIcon />}
-              label="Radio button"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-            <RadioButton 
-              theme="dark"
-              name="radio-5"
-              layout="card"
-              defaultChecked
-              icon={<CubeIcon />}
-              label="Radio button"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-          </div>
-
-          <div className="flex gap-4 pt-4">
-            <RadioButton theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" />
-            <RadioButton theme="dark" name="radio-6" layout="button" prefix="A" label="Website design" defaultChecked />
-          </div>
-        </section>
-      </div>
-
-      <Heading2 className="mb-8">Toggles</Heading2>
-      
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
-          <div className="flex items-center gap-6">
-            <Toggle label="Option one" />
-            <Toggle label="Option one" defaultChecked />
-          </div>
-
-          <div className="space-y-4 pt-4">
-            <Toggle 
-              layout="card"
-              label="Toggle checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
-            />
-            <Toggle 
-              layout="card"
-              defaultChecked
-              label="Toggle checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
-            />
-          </div>
-        </section>
-
-        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <div className="flex items-center gap-6">
-            <Toggle theme="dark" label="Option one" />
-            <Toggle theme="dark" label="Option one" defaultChecked />
-          </div>
-
-          <div className="space-y-4 pt-4">
-            <Toggle 
-              theme="dark"
-              layout="card"
-              label="Toggle checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
-            />
-            <Toggle 
-              theme="dark"
-              layout="card"
-              defaultChecked
-              label="Toggle checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
-            />
-          </div>
-        </section>
-      </div>
-
       <Heading2 className="mb-8">Tooltips</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">

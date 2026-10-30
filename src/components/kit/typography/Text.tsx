@@ -1,16 +1,12 @@
-import type { ReactNode } from 'react'
+import type { TextProps } from '../../../types'
 
-export function Text({ 
-  children, 
-  size = 'base', 
+export function Text ({
+  children,
+  size = 'base',
   weight = 'normal',
-  className = '' 
-}: { 
-  children: ReactNode, 
-  size?: 'sm' | 'base' | 'lg', 
-  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold',
-  className?: string 
-}) {
+  className =''
+} : TextProps){
+  
   const sizes = {
     sm: 'text-[0.75rem] leading-[1.5]', 
     base: 'text-[1rem] leading-[1.5]',  

@@ -39,7 +39,7 @@ export function Button({
       {icon && iconPosition === 'left' && (
         <span className="inline-flex shrink-0 items-center">{icon}</span>
       )}
-      {!isIconOnly && children != null ? children : null}
+      {children}
       {icon && iconPosition === 'right' && (
         <span className="inline-flex shrink-0 items-center">{icon}</span>
       )}
