@@ -1,14 +1,15 @@
 import { toggleStyles } from '../../constants'
 import type { ToggleProps } from '../../types'
+import { useTheme } from '../../context'
 
 export function Toggle({
-  theme = 'light',
   className = '',
   disabled,
   ...props
 }: ToggleProps) {
+  const {theme} = useTheme()
   return (
-    <span
+    <label
       className={`${toggleStyles.wrapper.base} ${
         disabled
           ? toggleStyles.wrapper.disabled
@@ -30,6 +31,6 @@ export function Toggle({
           className={`${toggleStyles.switch.knob.base} ${toggleStyles.switch.knob.theme[theme]}`}
         />
       </span>
-    </span>
+    </label>
   )
 }

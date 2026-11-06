@@ -2,9 +2,9 @@ import { radioButtonStyles } from '../../constants'
 import { CheckIcon } from '../../assets'
 import { Label } from './typography'
 import type { RadioButtonProps } from '../../types'
+import { useTheme } from '../../context'
 
 export function RadioButton({
-  theme = 'light',
   layout = 'standard',
   label,
   prefix,
@@ -12,6 +12,7 @@ export function RadioButton({
   disabled,
   ...props
 }: RadioButtonProps) {
+  const {theme} = useTheme()
   const input = (
     <input
       type="radio"

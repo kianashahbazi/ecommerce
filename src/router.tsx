@@ -3,10 +3,10 @@ import { LoginPage , UiKitPage } from "./pages";
 const router = createBrowserRouter([
     {
         path:'/' ,
-        element: <Navigate to= "/Login" replace />
+        element: <Navigate to= "/login" replace />
     } ,
     {
-        path: '/Login',
+        path: '/login',
         Component : LoginPage ,
     } ,
     {

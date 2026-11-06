@@ -1,13 +1,14 @@
 import { checkboxStyles } from '../../constants'
 import { CheckIcon } from '../../assets'
 import type { CheckboxProps } from '../../types'
+import { useTheme } from '../../context'
 
 export function Checkbox({
-  theme = 'light',
   className = '',
   disabled,
   ...props
 }: CheckboxProps) {
+  const {theme} = useTheme()
   return (
     <span className={`relative inline-flex h-5 w-5 shrink-0 ${className}`}>
       <input

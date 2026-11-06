@@ -1,10 +1,9 @@
 import type { ReactNode } from 'react'
-import type { CheckboxProps, CheckboxTheme } from '../../kit'
+import type { CheckboxProps } from '../../kit'
 
 export interface CheckboxCardProps
-  extends Omit<CheckboxProps,'theme' | 'className'> {
+  extends Omit<CheckboxProps, 'className'> {
     
-  theme?: CheckboxTheme
   label: string
   description?: string
   icon?: ReactNode

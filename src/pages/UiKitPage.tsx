@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { ThemeProvider } from '../context';
+
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from '../assets';
 
 import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,} from '../components'
@@ -39,96 +41,108 @@ function UiKitPage() {
       
       <Heading1 className="mb-12">UI Kit</Heading1>
       <Heading2 className="mb-8">Buttons</Heading2>
-      
+
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
-          <Label className="text-lg font-bold block">Light theme</Label>
+        <ThemeProvider defaultTheme="light">
+          <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+            <Label className="text-lg font-bold block">Light theme</Label>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button>Button</Button>
-            <Button variant="outline">Button</Button>
-            <Button variant="ghost">Button</Button>
-            <Button variant="danger">Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button>Button</Button>
+              <Button variant="outline">Button</Button>
+              <Button variant="ghost">Button</Button>
+              <Button variant="danger">Danger</Button>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button icon={<CubeIcon />}>Button</Button>
-            <Button variant="outline" icon={<CubeIcon />}>Button</Button>
-            <Button variant="ghost" icon={<CubeIcon />}>Button</Button>
-            <Button variant="danger" icon={<CubeIcon />}>Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button icon={<CubeIcon />}>Button</Button>
+              <Button variant="outline" icon={<CubeIcon />}>Button</Button>
+              <Button variant="ghost" icon={<CubeIcon />}>Button</Button>
+              <Button variant="danger" icon={<CubeIcon />}>Danger</Button>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Button icon={<CubeIcon />} iconPosition="right">Button</Button>
+              <Button variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
+              <Button variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
+              <Button variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
+            </div>
 
-          <div className="flex items-center gap-4">
-            <Button size="icon" aria-label="Cube"><CubeIcon /></Button>
-            <Button size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
-            <Button size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
-            <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
-          </div>
-        </section>
+            <div className="flex items-center gap-4">
+              <Button size="icon" aria-label="Cube"><CubeIcon /></Button>
+              <Button size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
+              <Button size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
+              <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
+            </div>
+          </section>
+        </ThemeProvider>
 
-        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-           <Label className="text-lg font-bold block text-white">Dark theme</Label>
+        <ThemeProvider defaultTheme="dark">
+          <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <Label className="text-lg font-bold block text-white">Dark theme</Label>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark">Button</Button>
-            <Button theme="dark" variant="outline">Button</Button>
-            <Button theme="dark" variant="ghost">Button</Button>
-            <Button theme="dark" variant="danger">Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+                <Button>Button</Button>
+                <Button variant="outline">Button</Button>
+                <Button variant="ghost">Button</Button>
+                <Button variant="danger">Danger</Button>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark" icon={<CubeIcon />}>Button</Button>
-            <Button theme="dark" variant="outline" icon={<CubeIcon />}>Button</Button>
-            <Button theme="dark" variant="ghost" icon={<CubeIcon />}>Button</Button>
-            <Button theme="dark" variant="danger" icon={<CubeIcon />}>Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+                <Button icon={<CubeIcon />}>Button</Button>
+                <Button variant="outline" icon={<CubeIcon />}>Button</Button>
+                <Button variant="ghost" icon={<CubeIcon />}>Button</Button>
+                <Button variant="danger" icon={<CubeIcon />}>Danger</Button>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button theme="dark" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button theme="dark" variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button theme="dark" variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
-            <Button theme="dark" variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
-          </div>
+            <div className="flex flex-wrap items-center gap-4">
+                <Button icon={<CubeIcon />} iconPosition="right">Button</Button>
+                <Button variant="outline" icon={<CubeIcon />} iconPosition="right">Button</Button>
+                <Button variant="ghost" icon={<CubeIcon />} iconPosition="right">Button</Button>
+                <Button variant="danger" icon={<CubeIcon />} iconPosition="right">Danger</Button>
+            </div>
 
-          <div className="flex items-center gap-4">
-            <Button theme="dark" size="icon" aria-label="Cube"><CubeIcon /></Button>
-            <Button theme="dark" size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
-            <Button theme="dark" size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
-            <Button theme="dark" size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
-          </div>
-        </section>
+            <div className="flex items-center gap-4">
+                <Button size="icon" aria-label="Cube"><CubeIcon /></Button>
+                <Button size="icon" variant="outline" aria-label="Cube"><CubeIcon /></Button>
+                <Button size="icon" variant="ghost" aria-label="Cube"><CubeIcon /></Button>
+                <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
+            </div>
+          </section>
+        </ThemeProvider>
+
       </div>
-
       <Heading2 className="mb-8">Inputs</Heading2>
-      
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
-          <Label className="text-lg font-bold block mb-6">Light theme</Label>
-          <Input placeholder="Placeholder" />
-          <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
-          <Input placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
-          <Input placeholder="Search" leftIcon={<SearchIcon />} />
-          <Input placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
-          <Input placeholder="www.relume.io" prefix="http://" />
-        </section>
 
-        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
-          <Input theme="dark" placeholder="Placeholder" />
-          <Input theme="dark" placeholder="Placeholder" rightIcon={<QuestionIcon />} />
-          <Input theme="dark" placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
-          <Input theme="dark" placeholder="Search" leftIcon={<SearchIcon />} />
-          <Input theme="dark" placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
-          <Input theme="dark" placeholder="www.relume.io" prefix="http://" />
-        </section>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
+        <ThemeProvider defaultTheme="light">
+          <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
+            <Label className="text-lg font-bold block mb-6">Light theme</Label>
+
+            <Input placeholder="Placeholder" />
+            <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
+            <Input placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
+            <Input placeholder="Search" leftIcon={<SearchIcon />} />
+            <Input placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
+            <Input placeholder="www.relume.io" prefix="http://" />
+          </section>
+        </ThemeProvider>
+
+        <ThemeProvider defaultTheme="dark">
+          <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
+
+            <Input placeholder="Placeholder" />
+            <Input placeholder="Placeholder" rightIcon={<QuestionIcon />} />
+            <Input placeholder="Placeholder" leftIcon={<CreditCardIcon />} rightIcon={<QuestionIcon />} />
+            <Input placeholder="Search" leftIcon={<SearchIcon />} />
+            <Input placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
+            <Input placeholder="www.relume.io" prefix="http://" />
+          </section>
+        </ThemeProvider>
+
       </div>
 
       <Heading2 className="mb-8">Text Area</Heading2>
@@ -198,97 +212,92 @@ function UiKitPage() {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
-
-          <div className="flex items-center gap-6">
-
-            <label className="inline-flex items-center gap-2 cursor-pointer">
-              <Checkbox />
-              <span>Checkbox</span>
-            </label>
-
-            <label className="inline-flex items-center gap-2 cursor-pointer">
-              <Checkbox defaultChecked />
-              <span>Checkbox</span>
-            </label>
-          </div>
-
-          <div className="space-y-4">
-
-            <CheckboxCard
-              icon={<CubeIcon />}
-              label="Checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-
-            <CheckboxCard
-              defaultChecked
-              icon={<CubeIcon />}
-              label="Checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-          </div>
-
-          <div className="flex gap-2 pt-4">
-            <Button size="sm" variant="outline">Option one</Button>
-            <Button size="sm" variant="solid">Option one</Button>
-          </div>
-
-        </section>
-
-
-        <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-
-          <div className="flex items-center gap-6">
-
-            <label className="inline-flex items-center gap-2 cursor-pointer">
-              <Checkbox theme="dark" />
-              <span>Checkbox</span>
-            </label>
-
-            <label className="inline-flex items-center gap-2 cursor-pointer">
-              <Checkbox theme="dark" defaultChecked />
-              <span>Checkbox</span>
-            </label>
-
-          </div>
-
-          <div className="space-y-4">
-
-            <CheckboxCard
-              theme="dark"
-              icon={<CubeIcon />}
-              label="Checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-
-            <CheckboxCard
-              theme="dark"
-              defaultChecked
-              icon={<CubeIcon />}
-              label="Checkbox"
-              description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-            />
-
-          </div>
-
-          <div className="flex gap-2 pt-4">
-            <Button theme="dark" size="sm" variant="outline">Option one</Button>
-            <Button theme="dark" size="sm" variant="solid">Option one</Button>
-          </div>
-
-        </section>
-
-      </div>
-      
-      <Heading2 className="mb-8">Radios</Heading2>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-
+        <ThemeProvider defaultTheme="light">
           <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
 
             <div className="flex items-center gap-6">
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <Checkbox />
+                <span>Checkbox</span>
+              </label>
 
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <Checkbox defaultChecked />
+                <span>Checkbox</span>
+              </label>
+            </div>
+
+            <div className="space-y-4">
+              <CheckboxCard
+                icon={<CubeIcon />}
+                label="Checkbox"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+
+              <CheckboxCard
+                defaultChecked
+                icon={<CubeIcon />}
+                label="Checkbox"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <Button size="sm" variant="outline">Option one</Button>
+              <Button size="sm" variant="solid">Option one</Button>
+            </div>
+
+          </section>
+        </ThemeProvider>
+
+        <ThemeProvider defaultTheme="dark">
+          <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+
+            <div className="flex items-center gap-6">
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <Checkbox />
+                <span>Checkbox</span>
+              </label>
+
+              <label className="inline-flex items-center gap-2 cursor-pointer">
+                <Checkbox defaultChecked />
+                <span>Checkbox</span>
+              </label>
+            </div>
+
+            <div className="space-y-4">
+              <CheckboxCard
+                icon={<CubeIcon />}
+                label="Checkbox"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+              <CheckboxCard
+                defaultChecked
+                icon={<CubeIcon />}
+                label="Checkbox"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              />
+            </div>
+
+            <div className="flex gap-2 pt-4">
+              <Button size="sm" variant="outline">Option one</Button>
+              <Button size="sm" variant="solid">Option one</Button>
+            </div>
+
+          </section>
+        </ThemeProvider>
+      </div>
+      
+
+      
+      <Heading2 className="mb-8">Radios</Heading2>
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
+        <ThemeProvider defaultTheme="light">
+          <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+
+            <div className="flex items-center gap-6">
               <label className="inline-flex items-center gap-2 cursor-pointer">
                 <RadioButton name="radio-1" />
                 <span>Radio</span>
@@ -298,11 +307,9 @@ function UiKitPage() {
                 <RadioButton name="radio-1" defaultChecked />
                 <span>Radio</span>
               </label>
-
             </div>
 
             <div className="space-y-4">
-
               <RadioButtonCard
                 name="radio-2"
                 icon={<CubeIcon />}
@@ -317,11 +324,9 @@ function UiKitPage() {
                 label="Radio button"
                 description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               />
-
             </div>
 
-            <div className="flex gap-4 pt-4">
-
+            <div className="flex flex-wrap gap-4 pt-4">
               <RadioButton
                 name="radio-3"
                 layout="button"
@@ -336,30 +341,28 @@ function UiKitPage() {
                 label="Website design"
                 defaultChecked
               />
-
             </div>
 
           </section>
+        </ThemeProvider>
 
+        <ThemeProvider defaultTheme="dark">
           <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
 
             <div className="flex items-center gap-6">
-
               <label className="inline-flex items-center gap-2 cursor-pointer">
-                <RadioButton theme="dark" name="radio-4" />
+                <RadioButton name="radio-4" />
                 <span>Radio</span>
               </label>
 
               <label className="inline-flex items-center gap-2 cursor-pointer">
-                <RadioButton theme="dark" name="radio-4" defaultChecked />
+                <RadioButton name="radio-4" defaultChecked />
                 <span>Radio</span>
               </label>
-
             </div>
 
             <div className="space-y-4">
               <RadioButtonCard
-                theme="dark"
                 name="radio-5"
                 icon={<CubeIcon />}
                 label="Radio button"
@@ -367,7 +370,6 @@ function UiKitPage() {
               />
 
               <RadioButtonCard
-                theme="dark"
                 name="radio-5"
                 defaultChecked
                 icon={<CubeIcon />}
@@ -376,10 +378,8 @@ function UiKitPage() {
               />
             </div>
 
-            <div className="flex gap-4 pt-4">
-
+            <div className="flex flex-wrap gap-4 pt-4">
               <RadioButton
-                theme="dark"
                 name="radio-6"
                 layout="button"
                 prefix="A"
@@ -387,7 +387,6 @@ function UiKitPage() {
               />
 
               <RadioButton
-                theme="dark"
                 name="radio-6"
                 layout="button"
                 prefix="A"
@@ -395,13 +394,20 @@ function UiKitPage() {
                 defaultChecked
               />
             </div>
+
           </section>
-        </div>
+        </ThemeProvider>
+
+      </div>
 
 
         <Heading2 className="mb-8">Toggles</Heading2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+
+          <ThemeProvider defaultTheme="light">
             <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
+
               <div className="flex items-center gap-6">
                 <label className="inline-flex items-center gap-2 cursor-pointer">
                   <Toggle />
@@ -415,7 +421,6 @@ function UiKitPage() {
               </div>
 
               <div className="space-y-4 pt-4">
-
                 <ToggleCard
                   label="Toggle checkbox"
                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
@@ -425,40 +430,44 @@ function UiKitPage() {
                   defaultChecked
                   label="Toggle checkbox"
                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
-                  />
+                />
               </div>
+
             </section>
+          </ThemeProvider>
+
+          <ThemeProvider defaultTheme="dark">
             <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+
               <div className="flex items-center gap-6">
                 <label className="inline-flex items-center gap-2 cursor-pointer">
-                  <Toggle theme="dark" />
+                  <Toggle />
                   <span>Option one</span>
                 </label>
 
                 <label className="inline-flex items-center gap-2 cursor-pointer">
-                  <Toggle theme="dark" defaultChecked />
+                  <Toggle defaultChecked />
                   <span>Option one</span>
                 </label>
               </div>
 
               <div className="space-y-4 pt-4">
-
                 <ToggleCard
-                  theme="dark"
                   label="Toggle checkbox"
                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
                 />
 
                 <ToggleCard
-                  theme="dark"
                   defaultChecked
                   label="Toggle checkbox"
                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim."
                 />
               </div>
-            </section>
 
-          </div>
+            </section>
+          </ThemeProvider>
+
+        </div>
 
       
       <Heading2 className="mb-8">Tooltips</Heading2>

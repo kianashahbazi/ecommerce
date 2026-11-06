@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react'
-import type { ToggleProps, ToggleTheme } from '../../kit'
+import type { ToggleProps } from '../../kit'
 
-export interface ToggleCardProps extends Omit<ToggleProps,'theme' | 'className'> {
-  theme?: ToggleTheme
+export interface ToggleCardProps extends Omit<ToggleProps, 'className'> {
   label: string
   description?: string
   icon?: ReactNode

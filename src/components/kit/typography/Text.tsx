@@ -1,4 +1,5 @@
 import type { TextProps } from '../../../types'
+import { useTheme } from '../../../context'
 
 export function Text ({
   children,
@@ -6,6 +7,7 @@ export function Text ({
   weight = 'normal',
   className =''
 } : TextProps){
+  const {theme} = useTheme()
   
   const sizes = {
     sm: 'text-[0.75rem] leading-[1.5]', 
@@ -20,9 +22,10 @@ export function Text ({
     semibold: 'font-semibold',
     bold: 'font-bold',
   }
+  const textColor = theme === 'dark' ? 'text-neutral-light' : 'text-neutral'
 
   return (
-    <p className={`${sizes[size]} ${weights[weight]} text-neutral ${className}`}>
+    <p className={`${sizes[size]} ${weights[weight]} ${textColor} ${className}`}>
       {children}
     </p>
   )

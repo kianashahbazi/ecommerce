@@ -1,11 +1,11 @@
 import { inputSizes, inputThemes } from '../../constants'
 import type { InputProps } from '../../types'
+import { useTheme } from '../../context'
 
 const baseStyles =
   'flex w-full items-center border transition-colors duration-200 focus-within:outline-none disabled:opacity-50'
 
 export function Input({
-  theme = 'light',
   size = 'md',
   leftIcon,
   rightIcon,
@@ -14,6 +14,7 @@ export function Input({
   disabled,
   ...props
 }: InputProps) {
+  const {theme} = useTheme()
   const currentTheme = inputThemes[theme]
 
   return (

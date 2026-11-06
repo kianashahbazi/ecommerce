@@ -1,6 +1,6 @@
 import type { ButtonProps } from '../../types'
 import { buttonSizes, buttonVariants } from '../../constants'
-
+import { useTheme } from '../../context'
 
 const baseStyles =
   'inline-flex items-center justify-center gap-2 font-medium transition-colors duration-200 ' +
@@ -12,7 +12,6 @@ const baseStyles =
 export function Button({
   variant = 'solid',
   size = 'md',
-  theme = 'light',
   icon,
   iconPosition = 'left',
   children,
@@ -20,6 +19,7 @@ export function Button({
   type = 'button',
   ...props
 }: ButtonProps) {
+  const {theme} = useTheme()
   const isIconOnly = size === 'icon'
 
   return (

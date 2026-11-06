@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
-import type { RadioButtonProps, RadioButtonTheme } from '../../kit'
+import type { RadioButtonProps } from '../../kit'
 
 export interface RadioButtonCardProps
-  extends Omit<RadioButtonProps, 'theme' | 'layout' | 'label' | 'prefix' | 'className'> {
-  theme?: RadioButtonTheme
+  extends Omit<RadioButtonProps, 'layout' | 'label' | 'prefix' | 'className'> {
   label: string
   description?: string
   icon?: ReactNode

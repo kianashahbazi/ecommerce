@@ -1,9 +1,9 @@
+import { useTheme } from '../../../context'
 import { Card, Toggle, Label, Text } from '../../kit'
 import { cardControlStyles } from '../../../constants'
 import type { ToggleCardProps } from '../../../types'
 
 export function ToggleCard({
-  theme = 'light',
   label,
   description,
   icon,
@@ -11,10 +11,18 @@ export function ToggleCard({
   className = '',
   ...props
 }: ToggleCardProps) {
+
+  const { theme } = useTheme()
+
   return (
-    <label className={disabled ? 'block cursor-not-allowed opacity-50' : 'block cursor-pointer'}>
+    <label
+      className={
+        disabled
+          ? 'block cursor-not-allowed opacity-50'
+          : 'block cursor-pointer'
+      }
+    >
       <Card
-        theme={theme}
         className={`${cardControlStyles.selected[theme]} ${className}`}
       >
         <span className={cardControlStyles.content}>
@@ -31,7 +39,10 @@ export function ToggleCard({
             </Label>
 
             {description && (
-              <Text size="sm" className={`${cardControlStyles.description.base} ${cardControlStyles.description.theme[theme]}`}>
+              <Text
+                size="sm"
+                className={`${cardControlStyles.description.base} ${cardControlStyles.description.theme[theme]}`}
+              >
                 {description}
               </Text>
             )}
@@ -40,7 +51,6 @@ export function ToggleCard({
         </span>
 
         <Toggle
-          theme={theme}
           disabled={disabled}
           {...props}
         />
