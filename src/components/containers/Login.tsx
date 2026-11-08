@@ -16,6 +16,11 @@ export function Login({
         : 'text-black hover:text-black'
     return(
         <main className={`relative min-h-screen w-full flex flex-col items-center justify-center gap-4 py-18 ${pageTheme}`}>
+            <header className="absolute left-1/2 top-3 -translate-x-1/2">
+                <span className="select-none text-2xl font-bold text-inherit" style={{ fontFamily: "'Dancing Script', cursive" }}>
+                    Logo
+                </span>
+            </header>
             <div className='absolute right-6 top-6 flex items-center gap-3'>
                 <span className='text-sm'>Dark Mode</span>
                 <Toggle 

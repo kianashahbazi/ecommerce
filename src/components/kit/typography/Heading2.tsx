@@ -1,4 +1,16 @@
 import type { ReactNode } from 'react'
-export function Heading2({ children, className = '' }: { children: ReactNode, className?: string }) {
-  return <h2 className={`text-[2.25rem] md:text-[3rem] leading-[1.2] font-bold text-neutral-darkest ${className}`}>{children}</h2>
+import { useTheme } from '../../../context'
+
+interface Heading2Props{
+  children:ReactNode
+  className?:string
+}
+
+export function Heading2({ children, className = '' }:Heading2Props) { 
+  const {theme} = useTheme()
+  const themeStyles = theme === 'dark' ? 'text-white' : 'text-neutral-darkest'
+  
+  return (
+  <h2 className={`text-[2.25rem] md:text-[3rem] leading-[1.2] font-bold ${className} ${themeStyles}`}>{children}</h2>
+  )
 }

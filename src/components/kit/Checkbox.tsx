@@ -6,9 +6,11 @@ import { useTheme } from '../../context'
 export function Checkbox({
   className = '',
   disabled,
+  theme:themeProp,
   ...props
 }: CheckboxProps) {
-  const {theme} = useTheme()
+  const {theme : contextTheme} = useTheme()
+  const resolvedTheme = themeProp ?? contextTheme
   return (
     <span className={`relative inline-flex h-5 w-5 shrink-0 ${className}`}>
       <input
@@ -20,10 +22,10 @@ export function Checkbox({
 
       <span
         aria-hidden="true"
-        className={`${checkboxStyles.indicator.base} ${checkboxStyles.indicator.theme[theme]} ${checkboxStyles.indicator.checkedIcon} peer-focus-visible:ring-2 peer-focus-visible:ring-primary ${disabled ? 'opacity-50' : ''}`}
+        className={`${checkboxStyles.indicator.base} ${checkboxStyles.indicator.theme[resolvedTheme]} ${checkboxStyles.indicator.checkedIcon} peer-focus-visible:ring-2 peer-focus-visible:ring-primary ${disabled ? 'opacity-50' : ''}`}
       >
         <CheckIcon
-          className={`${checkboxStyles.checkIcon.base} ${checkboxStyles.checkIcon.theme[theme]}`}
+          className={`${checkboxStyles.checkIcon.base} ${checkboxStyles.checkIcon.theme[resolvedTheme]}`}
         />
       </span>
     </span>

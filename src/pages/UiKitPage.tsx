@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ThemeProvider } from '../context';
+import { ThemeProvider , useTheme } from '../context';
 
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from '../assets';
 
@@ -9,35 +9,41 @@ import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,La
 function UiKitPage() {
   const [activeTab, setActiveTab] = useState('monthly')
   const [activeFilter, setActiveFilter] = useState('all')
+  const {theme} = useTheme()
+  const pageTheme = theme === 'dark' ? 'bg-neutral-darkest text-white' : 'bg-surface-light text-primary'
 
   const textContent = (
-    <div className="w-48 p-3 text-inherit">
-      <Text size="sm" className="text-inherit leading-relaxed">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </Text>
-    </div>
+    <ThemeProvider defaultTheme='light'>
+      <div className="w-48 p-3 text-inherit">
+        <Text size="sm" className="text-inherit leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </Text>
+      </div>
+    </ThemeProvider>
   )
 
   const cardContent = (
-    <div className="w-64 overflow-hidden bg-surface-light">
-      <div className="flex h-32 w-full items-center justify-center bg-neutral-lighter">
-        <ImageIcon />
+    <ThemeProvider defaultTheme='light'>
+      <div className="w-64 overflow-hidden bg-surface-light">
+        <div className="flex h-32 w-full items-center justify-center bg-neutral-lighter">
+          <ImageIcon />
+        </div>
+        <div className="p-4 text-left">
+          <Heading6 className="mb-1">Tooltip Title</Heading6>
+          <Text size="sm" className="mb-4 text-neutral">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </Text>
+          <a href="#" className="text-xs font-semibold flex items-center gap-1 hover:underline text-primary">
+            Find out more
+            <ArrowRightIcon className="w-3 h-3" />
+          </a>
+        </div>
       </div>
-      <div className="p-4 text-left">
-        <Heading6 className="mb-1">Tooltip Title</Heading6>
-        <Text size="sm" className="mb-4 text-neutral">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </Text>
-        <a href="#" className="text-xs font-semibold flex items-center gap-1 hover:underline text-primary">
-          Find out more
-          <ArrowRightIcon className="w-3 h-3" />
-        </a>
-      </div>
-    </div>
+    </ThemeProvider>
   )
 
   return (
-    <main className="min-h-screen bg-surface-light p-8 text-primary font-sans">
+    <main className={`min-h-screen p-8 font-sans ${pageTheme}`}>
       
       <Heading1 className="mb-12">UI Kit</Heading1>
       <Heading2 className="mb-8">Buttons</Heading2>
@@ -147,65 +153,76 @@ function UiKitPage() {
 
       <Heading2 className="mb-8">Text Area</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
-          <Label className="text-lg font-bold block mb-6">Light theme</Label>
-          <TextArea placeholder="Type your message..." rows={5} />
-        </section>
+        <ThemeProvider defaultTheme='light'>
+          <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
+            <Label className="text-lg font-bold block mb-6">Light theme</Label>
+            <TextArea placeholder="Type your message..." rows={5} />
+          </section>
+        </ThemeProvider>
 
-        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
-          <TextArea theme="dark" placeholder="Type your message..." rows={5} />
-        </section>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
+            <TextArea placeholder="Type your message..." rows={5} />
+          </section>
+        </ThemeProvider>
       </div>
 
-      <Heading2 className="mb-8">Select</Heading2>
+        <Heading2 className="mb-8">Select</Heading2>
       
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
-          <Select defaultValue="">
-            <option value="" disabled hidden>Select one...</option>
-            <option value="1">React</option>
-            <option value="2">Typescript</option>
-          </Select>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+            <ThemeProvider defaultTheme='light'>
+              <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
+                <Select defaultValue="">
+                  <option value="" disabled hidden>Select one...</option>
+                  <option value="1">React</option>
+                  <option value="2">Typescript</option>
+                </Select>
 
-          <Select defaultValue="" leftIcon={<CircleDotIcon />}>
-            <option value="" disabled hidden>Select one...</option>
-            <option value="1">Tailwind</option>
-            <option value="2">Next js</option>
-          </Select>
-        </section>
+                <Select defaultValue="" leftIcon={<CircleDotIcon />}>
+                  <option value="" disabled hidden>Select one...</option>
+                  <option value="1">Tailwind</option>
+                  <option value="2">Next js</option>
+                </Select>
+              </section>
+            </ThemeProvider>
+            <ThemeProvider defaultTheme='dark'>
+              <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+                <Select defaultValue="">
+                  <option value="" disabled hidden>Select one...</option>
+                  <option value="1">React</option>
+                  <option value="2">Typescript</option>
+                </Select>
 
-        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <Select theme="dark" defaultValue="">
-            <option value="" disabled hidden>Select one...</option>
-            <option value="1">React</option>
-            <option value="2">Typescript</option>
-          </Select>
-
-          <Select theme="dark" defaultValue="" leftIcon={<CircleDotIcon />}>
-            <option value="" disabled hidden>Select one...</option>
-            <option value="1">Tailwind</option>
-            <option value="2">Next js</option>
-          </Select>
-        </section>
-      </div>
+                <Select defaultValue="" leftIcon={<CircleDotIcon />}>
+                  <option value="" disabled hidden>Select one...</option>
+                  <option value="1">Tailwind</option>
+                  <option value="2">Next js</option>
+                </Select>
+              </section>
+            </ThemeProvider>
+          </div>
 
       <Heading2 className="mb-8">Tags</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
-          <div className="flex flex-wrap gap-4">
-            <Tag>Category</Tag>
-            <Tag icon={<TagCardIcon />}>Category</Tag>
-          </div>
-        </section>
+        <ThemeProvider defaultTheme='light'>
+          <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
+            <div className="flex flex-wrap gap-4">
+              <Tag>Category</Tag>
+              <Tag icon={<TagCardIcon />}>Category</Tag>
+            </div>
+          </section>
+        </ThemeProvider>
 
-        <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <div className="flex flex-wrap gap-4">
-            <Tag theme="dark">Category</Tag>
-            <Tag theme="dark" icon={<TagCardIcon />}>Category</Tag>
-          </div>
-        </section>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <div className="flex flex-wrap gap-4">
+              <Tag>Category</Tag>
+              <Tag icon={<TagCardIcon />}>Category</Tag>
+            </div>
+          </section>
+        </ThemeProvider>
       </div>
 
       <Heading2 className="mb-8">Checkbox</Heading2>
@@ -474,111 +491,124 @@ function UiKitPage() {
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         
-        <section className="space-y-16 bg-surface-light p-8 border rounded-lg border-border-light">
-          <div className="flex justify-around">
-            <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
-            <Tooltip position="bottom" content={textContent}><InfoIcon /></Tooltip>
-          </div>
+        <ThemeProvider defaultTheme='light'>
+          <section className="space-y-16 bg-surface-light p-8 border rounded-lg border-border-light">
+            <div className="flex justify-around">
+              <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
+              <Tooltip position="bottom" content={textContent}><InfoIcon /></Tooltip>
+            </div>
 
-          <div className="flex justify-around">
-            <Tooltip position="left" content={textContent}><InfoIcon /></Tooltip>
-            <Tooltip position="right" content={textContent}><InfoIcon /></Tooltip>
-          </div>
+            <div className="flex justify-around">
+              <Tooltip position="left" content={textContent}><InfoIcon /></Tooltip>
+              <Tooltip position="right" content={textContent}><InfoIcon /></Tooltip>
+            </div>
 
-          <div className="flex justify-around pt-10">
-            <Tooltip position="bottom" content={cardContent}><InfoIcon /></Tooltip>
-            <Tooltip position="right" content={cardContent}><InfoIcon /></Tooltip>
-          </div>
+            <div className="flex justify-around pt-10">
+              <Tooltip position="bottom" content={cardContent}><InfoIcon /></Tooltip>
+              <Tooltip position="right" content={cardContent}><InfoIcon /></Tooltip>
+            </div>
 
-          <div className="flex justify-around pt-10">
-            <Tooltip position="top" content={cardContent}><InfoIcon /></Tooltip>
-            <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
-          </div>
-        </section>
+            <div className="flex justify-around pt-10">
+              <Tooltip position="top" content={cardContent}><InfoIcon /></Tooltip>
+              <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
+            </div>
+          </section>
+        </ThemeProvider>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="space-y-16 bg-surface-dark p-8 text-white rounded-lg border border-border-dark">
+            <div className="flex justify-around text-white">
+              <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
+              <Tooltip position="bottom" content={textContent}><InfoIcon /></Tooltip>
+            </div>
 
-        <section className="space-y-16 bg-surface-dark p-8 text-white rounded-lg border border-border-dark">
-          <div className="flex justify-around text-white">
-            <Tooltip theme="dark" position="top" content={textContent}><InfoIcon /></Tooltip>
-            <Tooltip theme="dark" position="bottom" content={textContent}><InfoIcon /></Tooltip>
-          </div>
+            <div className="flex justify-around text-white">
+              <Tooltip position="left" content={textContent}><InfoIcon /></Tooltip>
+              <Tooltip position="right" content={textContent}><InfoIcon /></Tooltip>
+            </div>
 
-          <div className="flex justify-around text-white">
-            <Tooltip theme="dark" position="left" content={textContent}><InfoIcon /></Tooltip>
-            <Tooltip theme="dark" position="right" content={textContent}><InfoIcon /></Tooltip>
-          </div>
+            <div className="flex justify-around pt-10 text-white">
+              <Tooltip position="bottom" content={cardContent}><InfoIcon /></Tooltip>
+              <Tooltip position="right" content={cardContent}><InfoIcon /></Tooltip>
+            </div>
 
-          <div className="flex justify-around pt-10 text-white">
-            <Tooltip theme="dark" position="bottom" content={cardContent}><InfoIcon /></Tooltip>
-            <Tooltip theme="dark" position="right" content={cardContent}><InfoIcon /></Tooltip>
-          </div>
-
-          <div className="flex justify-around pt-10 text-white">
-            <Tooltip theme="dark" position="top" content={cardContent}><InfoIcon /></Tooltip>
-            <Tooltip theme="dark" position="left" content={cardContent}><InfoIcon /></Tooltip>
-          </div>
-        </section>
+            <div className="flex justify-around pt-10 text-white">
+              <Tooltip position="top" content={cardContent}><InfoIcon /></Tooltip>
+              <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
+            </div>
+          </section>
+        </ThemeProvider>
       </div>
 
       <Heading2 className="mb-8">Slider Arrows</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center gap-4 bg-surface-light p-4 border rounded-lg border-border-light">
-          <SliderArrow direction="left" />
-          <SliderArrow direction="right" />
-        </section>
-        <section className="flex items-center gap-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <SliderArrow theme="dark" direction="left" />
-          <SliderArrow theme="dark" direction="right" />
-        </section>
+        <ThemeProvider defaultTheme='light'>
+          <section className="flex items-center gap-4 bg-surface-light p-4 border rounded-lg border-border-light">
+            <SliderArrow direction="left" />
+            <SliderArrow direction="right" />
+          </section>
+        </ThemeProvider>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="flex items-center gap-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <SliderArrow direction="left" />
+            <SliderArrow direction="right" />
+          </section>
+        </ThemeProvider>
       </div>
 
       <Heading2 className="mb-8">Tabs</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
-          <Tabs 
-            options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
-            value={activeTab}
-            onChange={setActiveTab}
-          />
-        </section>
-        <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <Tabs 
-            theme="dark"
-            options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
-            value={activeTab}
-            onChange={setActiveTab}
-          />
-        </section>
+        <ThemeProvider defaultTheme='light'>
+          <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
+            <Tabs 
+              options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
+              value={activeTab}
+              onChange={setActiveTab}
+            />
+          </section>
+        </ThemeProvider>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <Tabs 
+              options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
+              value={activeTab}
+              onChange={setActiveTab}
+            />
+          </section>
+        </ThemeProvider>
       </div>
 
       <Heading2 className="mb-8">Filters</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
-          <Filters 
-            options={[
-              { label: 'View all', value: 'all' },
-              { label: 'Category one', value: 'cat1' },
-              { label: 'Category two', value: 'cat2' },
-              { label: 'Category three', value: 'cat3' },
-              { label: 'Category four', value: 'cat4' },
-            ]}
-            activeValue={activeFilter}
-            onChange={setActiveFilter}
-          />
-        </section>
-        <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
-          <Filters 
-            theme="dark"
-            options={[
-              { label: 'View all', value: 'all' },
-              { label: 'Category one', value: 'cat1' },
-              { label: 'Category two', value: 'cat2' },
-              { label: 'Category three', value: 'cat3' },
-              { label: 'Category four', value: 'cat4' },
-            ]}
-            activeValue={activeFilter}
-            onChange={setActiveFilter}
-          />
-        </section>
+        <ThemeProvider defaultTheme='light'>
+          <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
+            <Filters 
+              options={[
+                { label: 'View all', value: 'all' },
+                { label: 'Category one', value: 'cat1' },
+                { label: 'Category two', value: 'cat2' },
+                { label: 'Category three', value: 'cat3' },
+                { label: 'Category four', value: 'cat4' },
+              ]}
+              activeValue={activeFilter}
+              onChange={setActiveFilter}
+            />
+          </section>
+        </ThemeProvider>
+        <ThemeProvider defaultTheme='dark'>
+          <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
+            <Filters 
+              options={[
+                { label: 'View all', value: 'all' },
+                { label: 'Category one', value: 'cat1' },
+                { label: 'Category two', value: 'cat2' },
+                { label: 'Category three', value: 'cat3' },
+                { label: 'Category four', value: 'cat4' },
+              ]}
+              activeValue={activeFilter}
+              onChange={setActiveFilter}
+            />
+          </section>
+        </ThemeProvider>
       </div>
 
     </main>

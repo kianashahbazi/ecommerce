@@ -3,5 +3,7 @@ export const selectThemes = {
   dark: 'border-border-dark bg-surface-dark text-white focus-within:border-white',
 }
 
-export const selectDisabledStyles =
-  'cursor-not-allowed bg-neutral-lightest dark:bg-neutral-darker'
+export const selectDisabledStyles ={
+  light:'cursor-not-allowed opacity-50 !bg-neutral-lightest',
+  dark:'cursor-not-allowed opacity-50 !bg-neutral-darker',
+}
