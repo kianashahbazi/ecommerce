@@ -4,7 +4,7 @@ import { ThemeProvider , useTheme } from '../context';
 
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from '../assets';
 
-import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,} from '../components'
+import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,Link,} from '../components'
 
 function UiKitPage() {
   const [activeTab, setActiveTab] = useState('monthly')
@@ -33,10 +33,10 @@ function UiKitPage() {
           <Text size="sm" className="mb-4 text-neutral">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
-          <a href="#" className="text-xs font-semibold flex items-center gap-1 hover:underline text-primary">
+          <Link href="#" className="text-xs font-semibold flex items-center gap-1 text-primary">
             Find out more
             <ArrowRightIcon className="w-3 h-3" />
-          </a>
+          </Link>
         </div>
       </div>
     </ThemeProvider>
