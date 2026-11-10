@@ -7,5 +7,4 @@ export interface FiltersProps {
   options: FilterOption[]
   activeValue: string
   onChange: (value: string) => void
-  theme?: 'light' | 'dark'
 }

@@ -1,3 +1,5 @@
 import type {HTMLAttributes } from 'react'
 
-export type CardProps = HTMLAttributes<HTMLDivElement>
+export type CardProps = HTMLAttributes<HTMLDivElement> &{
+    selectable?:boolean
+}

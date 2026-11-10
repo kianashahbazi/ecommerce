@@ -1,7 +1,6 @@
 import { Card, RadioButton, Label, Text } from '../../kit'
 import { cardControlStyles } from '../../../constants'
 import type { RadioButtonCardProps } from '../../../types'
-import { useTheme } from '../../../context'
 
 export function RadioButtonCard({
   label,
@@ -11,40 +10,26 @@ export function RadioButtonCard({
   className = '',
   ...props
 }: RadioButtonCardProps) {
-  const {theme} = useTheme()
+
   return (
-    <label className={disabled ? 'block cursor-not-allowed opacity-50' : 'block cursor-pointer'}>
-      <Card
-        className={`${cardControlStyles.selected[theme]} ${className}`}
-      >
+    <Card selectable className={className}>
+      <label className='w-full flex items-center justify-between gap-4'>
         <span className={cardControlStyles.content}>
-
-          {icon && (
-            <span className={cardControlStyles.icon}>
-              {icon}
-            </span>
-          )}
-
+          {icon}
           <span className={cardControlStyles.text}>
-            <Label className={cardControlStyles.label[theme]}>
-              {label}
-            </Label>
-
+            <Label>{label}</Label>
             {description && (
-              <Text size="sm" className={`${cardControlStyles.description.base} ${cardControlStyles.description.theme[theme]}`}>
+              <Text size="sm" className={cardControlStyles.description.base}>
                 {description}
               </Text>
             )}
           </span>
-
         </span>
-
         <RadioButton
           disabled={disabled}
           {...props}
         />
-
-      </Card>
-    </label>
+      </label>
+    </Card>
   )
 }

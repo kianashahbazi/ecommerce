@@ -1,17 +1,11 @@
 import {Button , Card , Heading3 , Input , Text , Label , Link} from '../kit';
 import type { LoginProps } from "../../types";
-import {useTheme} from '../../context';
 
 export function Login({
     username ,password , onUsernameChange , onPasswordChange , onSubmit,
 
 } : LoginProps){
-    const {theme} = useTheme();
-
-    const forgotPasswordLinkStyle =
-    theme === 'dark'
-        ? 'text-neutral-light hover:text-white'
-        : 'text-black hover:text-black'
+    
         return(
             <Card className='flex flex-col items-stretch justify-start p-12 w-119.5 h-131.25'>
                 <div className='w-full flex flex-col items-center gap-6 mb-6'>
@@ -28,9 +22,7 @@ export function Login({
                     <div className='w-full'>
                         <div className='flex items-center justify-between mb-4'>
                             <Label>Password*</Label>
-                            <Text size='sm' className='w-40.75 text-center'>
-                                <Link href='#' className={`underline underline-offset-4 ${forgotPasswordLinkStyle}`}>Forgot your password?</Link>
-                            </Text>
+                            <Link href='#' size='sm' underline>Forgot your password?</Link>
                         </div>
                         <Input className='w-full' id='password' size='md' type='password' placeholder='Password' value={password} onChange={onPasswordChange}></Input>
                     </div>

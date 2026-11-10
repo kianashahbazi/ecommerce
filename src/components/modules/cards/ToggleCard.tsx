@@ -1,4 +1,3 @@
-import { useTheme } from '../../../context'
 import { Card, Toggle, Label, Text } from '../../kit'
 import { cardControlStyles } from '../../../constants'
 import type { ToggleCardProps } from '../../../types'
@@ -12,40 +11,30 @@ export function ToggleCard({
   ...props
 }: ToggleCardProps) {
 
-  const { theme } = useTheme()
-
   return (
-    <label
-      className={
-        disabled
-          ? 'block cursor-not-allowed opacity-50'
-          : 'block cursor-pointer'
-      }
-    >
-      <Card
-        className={`${cardControlStyles.selected[theme]} ${className}`}
-      >
+    <Card selectable className={className}>
+      <label className={`flex w-full items-start justify-between gap-4 ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}>
         <span className={cardControlStyles.content}>
-
           {icon && (
             <span className={cardControlStyles.icon}>
               {icon}
             </span>
           )}
-
           <span className={cardControlStyles.text}>
-            <Label className={cardControlStyles.label[theme]}>
+
+            <Label>
               {label}
             </Label>
 
             {description && (
               <Text
                 size="sm"
-                className={`${cardControlStyles.description.base} ${cardControlStyles.description.theme[theme]}`}
+                className={cardControlStyles.description.base}
               >
                 {description}
               </Text>
             )}
+
           </span>
 
         </span>
@@ -55,7 +44,7 @@ export function ToggleCard({
           {...props}
         />
 
-      </Card>
-    </label>
+      </label>
+    </Card>
   )
 }

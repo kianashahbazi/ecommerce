@@ -5,17 +5,15 @@ import { useTheme } from '../../context'
 
 export function SliderArrow({
   direction,
-  theme :themeProp,
   className = '',
   ...props
 }: SliderArrowProps) {
 
-  const {theme: contextTheme} = useTheme()
-  const resolvedTheme = themeProp ?? contextTheme
+  const {theme} = useTheme()
 
   return (
     <button
-      className={`${sliderArrowStyles.base} ${sliderArrowStyles.theme[resolvedTheme]} ${className}`.trim()}
+      className={`${sliderArrowStyles.base} ${sliderArrowStyles.theme[theme]} ${className}`.trim()}
       aria-label={`Scroll ${direction}`}
       {...props}
     >

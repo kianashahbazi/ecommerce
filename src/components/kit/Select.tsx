@@ -11,20 +11,17 @@ export function Select({
   className = '',
   disabled,
   children,
-  theme: themeProp,
   ...props
 }: SelectProps) {
-  const { theme: contextTheme } = useTheme()
-
-  const resolvedTheme = themeProp ?? contextTheme
+  const { theme } = useTheme()
 
   return (
     <div
       className={[
         baseStyles,
-        selectThemes[resolvedTheme],
+        selectThemes[theme],
         disabled
-          ? selectDisabledStyles[resolvedTheme]
+          ? selectDisabledStyles[theme]
           : '',
         className,
       ]
@@ -50,7 +47,7 @@ export function Select({
       <div className="flex shrink-0 items-center justify-center pr-3">
         <ChevronDownIcon
           className={`w-4 h-4 ${
-            resolvedTheme === 'dark'
+            theme === 'dark'
               ? 'text-neutral-light'
               : 'text-neutral'
           }`}

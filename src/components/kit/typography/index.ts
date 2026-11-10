@@ -6,3 +6,4 @@ export * from './Heading5';
 export * from './Heading6';
 export * from './Label';
 export * from './Text';
+export * from './Link';

@@ -5,10 +5,9 @@ import { useTheme } from '../../context'
 const baseStyles =
   'w-full border p-3 text-sm transition-colors duration-200 outline-none resize disabled:opacity-50 disabled:cursor-not-allowed'
 
-export function TextArea({ theme  : themeProp , className = '', ...props }: TextAreaProps) {
+export function TextArea({className = '', ...props }: TextAreaProps) {
 
-  const { theme: contextTheme } = useTheme()
-  const resolvedTheme = themeProp ?? contextTheme
+  const { theme } = useTheme()
 
-  return <textarea className={`${baseStyles} ${textAreaThemes[resolvedTheme]} ${className}`.trim()} {...props} />
+  return <textarea className={`${baseStyles} ${textAreaThemes[theme]} ${className}`.trim()} {...props} />
 }

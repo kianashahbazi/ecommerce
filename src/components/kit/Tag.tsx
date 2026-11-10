@@ -7,17 +7,15 @@ const baseStyles =
   'inline-flex items-center justify-center gap-2 border px-3 py-1.5 text-xs font-medium transition-colors'
 
 export function Tag({
-  theme : themeProp,
   icon,
   children,
   className = '',
   ...props
 }: TagProps) {
-  const { theme: contextTheme } = useTheme()
-  const resolvedTheme = themeProp ?? contextTheme
+  const { theme} = useTheme()
 
   return (
-    <span className={`${baseStyles} ${tagThemes[resolvedTheme]} ${className}`.trim()} {...props}>
+    <span className={`${baseStyles} ${tagThemes[theme]} ${className}`.trim()} {...props}>
       {children}
       {icon && <span className="shrink-0">{icon}</span>}
     </span>

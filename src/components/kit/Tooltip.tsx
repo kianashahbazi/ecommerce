@@ -5,23 +5,21 @@ import { useTheme } from '../../context'
 export function Tooltip({
   content,
   children,
-  theme : themeProp,
   position = 'top',
   className = '',
 }: TooltipProps) {
 
-  const { theme: contextTheme } = useTheme()
-  const resolvedTheme = themeProp ?? contextTheme
+  const { theme} = useTheme()
 
   return (
     <div className={`${tooltipContainerStyles} ${className}`}>
       {children}
       <div
-        className={`${tooltipContentStyles} ${tooltipPositionStyles[position]} ${tooltipBubbleStyles[resolvedTheme]}`}
+        className={`${tooltipContentStyles} ${tooltipPositionStyles[position]} ${tooltipBubbleStyles[theme]}`}
       >
         {content}
         <div
-          className={`${tooltipArrowBaseStyles} ${tooltipArrowStyles[position]} ${tooltipBubbleStyles[resolvedTheme]}`}
+          className={`${tooltipArrowBaseStyles} ${tooltipArrowStyles[position]} ${tooltipBubbleStyles[theme]}`}
         />
       </div>
     </div>

@@ -9,7 +9,7 @@ export function Toggle({
 }: ToggleProps) {
   const {theme} = useTheme()
   return (
-    <label
+    <span
       className={`${toggleStyles.wrapper.base} ${
         disabled
           ? toggleStyles.wrapper.disabled
@@ -31,6 +31,6 @@ export function Toggle({
           className={`${toggleStyles.switch.knob.base} ${toggleStyles.switch.knob.theme[theme]}`}
         />
       </span>
-    </label>
+    </span>
   )
 }

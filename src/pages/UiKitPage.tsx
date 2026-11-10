@@ -1,29 +1,21 @@
 import { useState } from 'react';
-
-import { ThemeProvider , useTheme } from '../context';
-
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from '../assets';
-
-import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,Link,} from '../components'
+import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,Link, PageLayout, PageContainer , PageSurface, ThemePreview ,} from '../components'
 
 function UiKitPage() {
   const [activeTab, setActiveTab] = useState('monthly')
   const [activeFilter, setActiveFilter] = useState('all')
-  const {theme} = useTheme()
-  const pageTheme = theme === 'dark' ? 'bg-neutral-darkest text-white' : 'bg-surface-light text-primary'
+  
 
   const textContent = (
-    <ThemeProvider defaultTheme='light'>
       <div className="w-48 p-3 text-inherit">
         <Text size="sm" className="text-inherit leading-relaxed">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Text>
       </div>
-    </ThemeProvider>
   )
 
   const cardContent = (
-    <ThemeProvider defaultTheme='light'>
       <div className="w-64 overflow-hidden bg-surface-light">
         <div className="flex h-32 w-full items-center justify-center bg-neutral-lighter">
           <ImageIcon />
@@ -33,24 +25,25 @@ function UiKitPage() {
           <Text size="sm" className="mb-4 text-neutral">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Text>
-          <Link href="#" className="text-xs font-semibold flex items-center gap-1 text-primary">
+          <Link href="#" size='sm' weight='semibold'>
             Find out more
             <ArrowRightIcon className="w-3 h-3" />
           </Link>
         </div>
       </div>
-    </ThemeProvider>
   )
 
   return (
-    <main className={`min-h-screen p-8 font-sans ${pageTheme}`}>
-      
-      <Heading1 className="mb-12">UI Kit</Heading1>
-      <Heading2 className="mb-8">Buttons</Heading2>
+      <PageSurface>
+        <PageLayout variant='content'>
+          <PageContainer variant='wide'>
+            <main className='w-full'>
+            <Heading1 className="mb-12">UI Kit</Heading1>
+            <Heading2 className="mb-8">Buttons</Heading2>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <ThemeProvider defaultTheme="light">
+        <ThemePreview theme='light'>
           <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
             <Label className="text-lg font-bold block">Light theme</Label>
 
@@ -82,9 +75,9 @@ function UiKitPage() {
               <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
             </div>
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme="dark">
+        <ThemePreview theme='dark'>
           <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <Label className="text-lg font-bold block text-white">Dark theme</Label>
 
@@ -116,14 +109,14 @@ function UiKitPage() {
                 <Button size="icon" variant="danger" aria-label="Cube"><CubeIcon /></Button>
             </div>
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
       </div>
       <Heading2 className="mb-8">Inputs</Heading2>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <ThemeProvider defaultTheme="light">
+        <ThemePreview theme='light'>
           <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
             <Label className="text-lg font-bold block mb-6">Light theme</Label>
 
@@ -134,9 +127,9 @@ function UiKitPage() {
             <Input placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
             <Input placeholder="www.relume.io" prefix="http://" />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme="dark">
+        <ThemePreview theme='dark'>
           <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
 
@@ -147,31 +140,31 @@ function UiKitPage() {
             <Input placeholder="Placeholder" prefix="USD" rightIcon={<ChevronDownIcon />} />
             <Input placeholder="www.relume.io" prefix="http://" />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
       </div>
 
       <Heading2 className="mb-8">Text Area</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme='light'>
           <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
             <Label className="text-lg font-bold block mb-6">Light theme</Label>
             <TextArea placeholder="Type your message..." rows={5} />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme='dark'>
+        <ThemePreview theme='dark'>
           <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <Label className="text-lg font-bold block mb-6 text-white">Dark theme</Label>
             <TextArea placeholder="Type your message..." rows={5} />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
         <Heading2 className="mb-8">Select</Heading2>
       
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-            <ThemeProvider defaultTheme='light'>
+            <ThemePreview theme='light'>
               <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
                 <Select defaultValue="">
                   <option value="" disabled hidden>Select one...</option>
@@ -185,8 +178,8 @@ function UiKitPage() {
                   <option value="2">Next js</option>
                 </Select>
               </section>
-            </ThemeProvider>
-            <ThemeProvider defaultTheme='dark'>
+            </ThemePreview>
+            <ThemePreview theme='dark'>
               <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
                 <Select defaultValue="">
                   <option value="" disabled hidden>Select one...</option>
@@ -200,36 +193,36 @@ function UiKitPage() {
                   <option value="2">Next js</option>
                 </Select>
               </section>
-            </ThemeProvider>
+            </ThemePreview>
           </div>
 
       <Heading2 className="mb-8">Tags</Heading2>
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme = 'light'>
           <section className="space-y-4 bg-surface-light p-4 border rounded-lg border-border-light">
             <div className="flex flex-wrap gap-4">
               <Tag>Category</Tag>
               <Tag icon={<TagCardIcon />}>Category</Tag>
             </div>
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme='dark'>
+        <ThemePreview theme='dark'>
           <section className="space-y-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <div className="flex flex-wrap gap-4">
               <Tag>Category</Tag>
               <Tag icon={<TagCardIcon />}>Category</Tag>
             </div>
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
       <Heading2 className="mb-8">Checkbox</Heading2>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <ThemeProvider defaultTheme="light">
+        <ThemePreview theme='light'>
           <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
 
             <div className="flex items-center gap-6">
@@ -265,9 +258,9 @@ function UiKitPage() {
             </div>
 
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme="dark">
+        <ThemePreview theme='dark'>
           <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
 
             <div className="flex items-center gap-6">
@@ -302,7 +295,7 @@ function UiKitPage() {
             </div>
 
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
       
 
@@ -311,7 +304,7 @@ function UiKitPage() {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-        <ThemeProvider defaultTheme="light">
+        <ThemePreview theme='light'>
           <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
 
             <div className="flex items-center gap-6">
@@ -361,9 +354,9 @@ function UiKitPage() {
             </div>
 
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
-        <ThemeProvider defaultTheme="dark">
+        <ThemePreview theme='dark'>
           <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
 
             <div className="flex items-center gap-6">
@@ -413,7 +406,7 @@ function UiKitPage() {
             </div>
 
           </section>
-        </ThemeProvider>
+        </ThemePreview>
 
       </div>
 
@@ -422,7 +415,7 @@ function UiKitPage() {
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
 
-          <ThemeProvider defaultTheme="light">
+          <ThemePreview theme='light'>
             <section className="space-y-8 bg-surface-light p-4 border rounded-lg border-border-light">
 
               <div className="flex items-center gap-6">
@@ -451,9 +444,9 @@ function UiKitPage() {
               </div>
 
             </section>
-          </ThemeProvider>
+          </ThemePreview>
 
-          <ThemeProvider defaultTheme="dark">
+          <ThemePreview theme='dark'>
             <section className="space-y-8 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
 
               <div className="flex items-center gap-6">
@@ -482,7 +475,7 @@ function UiKitPage() {
               </div>
 
             </section>
-          </ThemeProvider>
+          </ThemePreview>
 
         </div>
 
@@ -491,7 +484,7 @@ function UiKitPage() {
       
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
         
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme = 'light'>
           <section className="space-y-16 bg-surface-light p-8 border rounded-lg border-border-light">
             <div className="flex justify-around">
               <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
@@ -513,8 +506,8 @@ function UiKitPage() {
               <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
             </div>
           </section>
-        </ThemeProvider>
-        <ThemeProvider defaultTheme='dark'>
+        </ThemePreview>
+        <ThemePreview theme='dark'>
           <section className="space-y-16 bg-surface-dark p-8 text-white rounded-lg border border-border-dark">
             <div className="flex justify-around text-white">
               <Tooltip position="top" content={textContent}><InfoIcon /></Tooltip>
@@ -536,28 +529,28 @@ function UiKitPage() {
               <Tooltip position="left" content={cardContent}><InfoIcon /></Tooltip>
             </div>
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
       <Heading2 className="mb-8">Slider Arrows</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme = 'light'>
           <section className="flex items-center gap-4 bg-surface-light p-4 border rounded-lg border-border-light">
             <SliderArrow direction="left" />
             <SliderArrow direction="right" />
           </section>
-        </ThemeProvider>
-        <ThemeProvider defaultTheme='dark'>
+        </ThemePreview>
+        <ThemePreview theme='dark'>
           <section className="flex items-center gap-4 bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <SliderArrow direction="left" />
             <SliderArrow direction="right" />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
       <Heading2 className="mb-8">Tabs</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme = 'light'>
           <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
             <Tabs 
               options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
@@ -565,8 +558,8 @@ function UiKitPage() {
               onChange={setActiveTab}
             />
           </section>
-        </ThemeProvider>
-        <ThemeProvider defaultTheme='dark'>
+        </ThemePreview>
+        <ThemePreview theme='dark'>
           <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <Tabs 
               options={[{ label: 'Monthly', value: 'monthly' }, { label: 'Yearly', value: 'yearly' }]}
@@ -574,12 +567,12 @@ function UiKitPage() {
               onChange={setActiveTab}
             />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
       <Heading2 className="mb-8">Filters</Heading2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 mb-20">
-        <ThemeProvider defaultTheme='light'>
+        <ThemePreview theme = 'light'>
           <section className="flex items-center bg-surface-light p-4 border rounded-lg border-border-light">
             <Filters 
               options={[
@@ -593,8 +586,8 @@ function UiKitPage() {
               onChange={setActiveFilter}
             />
           </section>
-        </ThemeProvider>
-        <ThemeProvider defaultTheme='dark'>
+        </ThemePreview>
+        <ThemePreview theme='dark'>
           <section className="flex items-center bg-surface-dark p-4 text-white rounded-lg border border-border-dark">
             <Filters 
               options={[
@@ -608,10 +601,13 @@ function UiKitPage() {
               onChange={setActiveFilter}
             />
           </section>
-        </ThemeProvider>
+        </ThemePreview>
       </div>
 
-    </main>
+            </main>
+          </PageContainer>
+        </PageLayout>
+      </PageSurface>
   )
 }
 

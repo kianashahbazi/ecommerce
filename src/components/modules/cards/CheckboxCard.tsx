@@ -1,7 +1,6 @@
 import {Card,Checkbox,Label,Text} from '../../kit'
 import { cardControlStyles } from '../../../constants'
 import type { CheckboxCardProps } from '../../../types'
-import { useTheme } from '../../../context'
 
 export function CheckboxCard({
     label,
@@ -11,40 +10,26 @@ export function CheckboxCard({
     className = '',
     ...props
 }:CheckboxCardProps){
-  const {theme} = useTheme()
+
     return(
-        <label className={disabled ? 'block cursor-not-allowed opacity-50' : 'block cursor-pointer'}>
-      <Card
-        className={`${cardControlStyles.selected[theme]} ${className}`}
-      >
-        <span className={cardControlStyles.content}>
-
-          {icon && (
-            <span className={cardControlStyles.icon}>
-              {icon}
+      <Card selectable className={className}>
+        <label className='w-full flex items-center justify-between gap-4'>
+          <span className={cardControlStyles.content}>
+            {icon}
+            <span className={cardControlStyles.text}>
+              <Label>{label}</Label>
+              {description && (
+                <Text size="sm" className={cardControlStyles.description.base}>
+                  {description}
+                </Text>
+              )}
             </span>
-          )}
-
-          <span className={cardControlStyles.text}>
-            <Label className={cardControlStyles.label[theme]}>
-              {label}
-            </Label>
-
-            {description && (
-              <Text size="sm" className={`${cardControlStyles.description.base} ${cardControlStyles.description.theme[theme]}`}>
-                {description}
-              </Text>
-            )}
           </span>
-
-        </span>
-
-        <Checkbox
-          disabled={disabled}
-          {...props}
-        />
-
+          <Checkbox
+            disabled={disabled}
+            {...props}
+          />
+        </label>
       </Card>
-    </label>
     )
 }

@@ -4,4 +4,8 @@ export const cardStyles = {
         light:'border-border-light bg-surface-light',
         dark:'border-border-dark bg-surface-dark',
     },
+    selected:{
+        light:'has-[:checked]:border-primary',
+        dark:'has-[:checked]:border-white',
+    },
 }

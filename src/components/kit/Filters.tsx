@@ -2,10 +2,9 @@ import { filtersStyles } from '../../constants'
 import type { FiltersProps } from '../../types'
 import { useTheme } from '../../context'
 
-export function Filters({ options, activeValue, onChange, theme : themeProp, }: FiltersProps) {
+export function Filters({ options, activeValue, onChange, }: FiltersProps) {
 
-  const {theme:contextTheme} = useTheme()
-  const resolvedTheme = themeProp ?? contextTheme
+  const {theme} = useTheme()
   
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -19,7 +18,7 @@ export function Filters({ options, activeValue, onChange, theme : themeProp, }: 
             onClick={() => onChange(opt.value)}
             className={[
               filtersStyles.button,
-              isActive ? filtersStyles.active[resolvedTheme] : filtersStyles.inactive[resolvedTheme],
+              isActive ? filtersStyles.active[theme] : filtersStyles.inactive[theme],
             ].join(' ')}
           >
             {opt.label}
