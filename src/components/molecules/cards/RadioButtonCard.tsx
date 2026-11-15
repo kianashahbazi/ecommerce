@@ -1,4 +1,4 @@
-import { Card, RadioButton, Label, Text } from '../../kit'
+import { Card, RadioButton, Label, Text } from '../../atoms'
 import { cardControlStyles } from '../../../constants'
 import type { RadioButtonCardProps } from '../../../types'
 

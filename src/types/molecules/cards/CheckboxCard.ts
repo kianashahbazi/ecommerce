@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import type { CheckboxProps } from '../../kit'
+import type { CheckboxProps } from '../../atoms'
 
 export interface CheckboxCardProps
   extends Omit<CheckboxProps, 'className'> {

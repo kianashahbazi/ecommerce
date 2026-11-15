@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CubeIcon, SearchIcon, CreditCardIcon, QuestionIcon, ChevronDownIcon, CircleDotIcon, TagCardIcon, InfoIcon, ImageIcon, ArrowRightIcon } from '../assets';
-import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,Link, PageLayout, PageContainer , PageSurface, ThemePreview ,} from '../components'
+import {Button,Checkbox,CheckboxCard,Filters,Heading1,Heading2,Heading6,Input,Label,RadioButton,RadioButtonCard,Select,SliderArrow,Tabs,Tag,Text,TextArea,Toggle,ToggleCard,Tooltip,Link , PageSurface, ThemePreview ,} from '../components'
 
 function UiKitPage() {
   const [activeTab, setActiveTab] = useState('monthly')
@@ -35,9 +35,7 @@ function UiKitPage() {
 
   return (
       <PageSurface>
-        <PageLayout variant='content'>
-          <PageContainer variant='wide'>
-            <main className='w-full'>
+            <main className='w-full px-2'>
             <Heading1 className="mb-12">UI Kit</Heading1>
             <Heading2 className="mb-8">Buttons</Heading2>
 
@@ -605,8 +603,6 @@ function UiKitPage() {
       </div>
 
             </main>
-          </PageContainer>
-        </PageLayout>
       </PageSurface>
   )
 }

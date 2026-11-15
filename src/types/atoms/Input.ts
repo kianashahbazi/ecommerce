@@ -7,4 +7,5 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   leftIcon?: ReactNode
   rightIcon?: ReactNode
   prefix?: string
+  label?:ReactNode
 }

@@ -1,15 +1,11 @@
-import { PageContainer , PageSurface , PageLayout } from "../components";
+import { PageSurface  } from "../components";
 
 function NotFound(){
     return(
         <PageSurface>
-            <PageLayout variant='centered'>
-                <PageContainer>
-                    <main className="p-8">
-                        <h1>404 Not Found</h1>
-                    </main>
-                </PageContainer>
-            </PageLayout>
+            <main className="p-8">
+                <h1>404 Not Found</h1>
+            </main>
         </PageSurface>
     );
 }

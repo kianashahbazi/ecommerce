@@ -1,7 +1,7 @@
 import { useState , type FormEvent } from "react";
 import { useNavigate } from "react-router";
 import { loginUser } from "../constants";
-import { Login , Header , Footer , PageLayout , PageSurface , PageContainer } from "../components";
+import { Login , PageSurface , Header , Footer } from "../components";
 
 function LoginPage(){
 
@@ -22,22 +22,17 @@ function LoginPage(){
 
     return(
         <PageSurface>
-            <PageLayout variant="centered">
-                <Header />
-                <PageContainer variant="narrow">
-                    <main className="w-full flex items-center justify-center">
-                        <Login
-                            username={username}
-                            password={password}
-                            onUsernameChange={(event) => setUsername(event.target.value)}
-                            onPasswordChange={(event) => setPassword(event.target.value)}
-                            onSubmit={handleSubmit}
-                        />
+            <Header />
+                <main className="w-full px-4 min-h-screen flex items-center justify-center">
+                    <Login
+                        username={username}
+                        password={password}
+                        onUsernameChange={(event) => setUsername(event.target.value)}
+                        onPasswordChange={(event) => setPassword(event.target.value)}
+                        onSubmit={handleSubmit}
+                    />
                     </main>
-                </PageContainer>
                 <Footer />
-            </PageLayout>
-
         </PageSurface>
 
     )

@@ -1,5 +1,5 @@
 import { useTheme } from "../../context";
-import { Toggle } from "../kit";
+import { Toggle } from "../atoms";
 
 export function ThemeSwitcher(){
     const {theme , toggleTheme} = useTheme()

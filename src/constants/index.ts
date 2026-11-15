@@ -1,4 +1,4 @@
-export * from './kit'
-export * from './modules'
+export * from './atoms'
+export * from './molecules'
 export * from './authentication'
-export * from './layout'
+export * from './templates'

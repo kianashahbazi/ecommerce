@@ -1,4 +1,4 @@
-import { ThemeSwitcher } from "../modules/ThemeSwitcher";
+import { ThemeSwitcher } from "../molecules";
 export function Header(){
     
     return(

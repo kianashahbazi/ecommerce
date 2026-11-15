@@ -1,4 +1,4 @@
-import { Card, Toggle, Label, Text } from '../../kit'
+import { Card, Toggle, Label, Text } from '../../atoms'
 import { cardControlStyles } from '../../../constants'
 import type { ToggleCardProps } from '../../../types'
 

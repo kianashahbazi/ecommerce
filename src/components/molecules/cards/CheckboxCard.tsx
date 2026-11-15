@@ -1,4 +1,4 @@
-import {Card,Checkbox,Label,Text} from '../../kit'
+import {Card,Checkbox,Label,Text} from '../../atoms'
 import { cardControlStyles } from '../../../constants'
 import type { CheckboxCardProps } from '../../../types'
 
