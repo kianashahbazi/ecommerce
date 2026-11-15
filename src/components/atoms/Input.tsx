@@ -13,6 +13,7 @@ export function Input({
   className = '',
   disabled,
   label,
+  ref,
   ...props
 }: InputProps) {
   const {theme} = useTheme()
@@ -31,7 +32,7 @@ export function Input({
           </div>
         )}
         {leftIcon && <div className="flex shrink-0 items-center justify-center pl-3">{leftIcon}</div>}
-        <input
+        <input ref={ref}
           className={`h-full w-full flex-1 bg-transparent px-3 outline-none disabled:cursor-not-allowed ${currentTheme.input}`}
           disabled={disabled}
           {...props}
