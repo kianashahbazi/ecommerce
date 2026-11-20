@@ -1,6 +1,7 @@
-import {Button , Card , Heading3 , Input , Text , Label , Link} from '../atoms';
+import {Button , Card , Heading3 , Text , Link} from '../atoms';
 import type { LoginProps } from "../../types";
 import {useForm} from '@tanstack/react-form';
+import { InputCombine } from '../molecules';
 
 export function Login({onSubmit} : LoginProps){
     const form = useForm({
@@ -39,7 +40,7 @@ export function Login({onSubmit} : LoginProps){
                     <form.Field name="username" validators = {{onBlur :({value}) => !value.trim() ? 'Username is required' : undefined,}}>
                         {(field) => (
                             <>
-                                <Input label={<Label>Username*</Label>} className='w-full' id='username' size='md' type='text' placeholder='Username' name ={field.name} value={field.state.value} onBlur={field.handleBlur} onChange={(event) => field.handleChange(event.target.value)}/>
+                            <InputCombine label='Username*' className='w-full' id='username' size='md' type='text' placeholder='Username' name={field.name} value={field.state.value} onBlur={field.handleBlur} onChange={(event) => field.handleChange(event.target.value)}/>
                                 {!field.state.meta.isValid && (
                                     <Text size='sm' className='text-red-600'>
                                         {field.state.meta.errors.join(', ')}
@@ -52,7 +53,7 @@ export function Login({onSubmit} : LoginProps){
                     <form.Field name="password" validators = {{onBlur :({value}) => !value.trim() ? 'Password is required' : undefined,}}>
                         {(field) => (
                             <>
-                                <Input label={<div className='flex items-center justify-between mb-4'><Label>Password*</Label><Link href='#' size='sm' underline>Forgot your password?</Link></div>} className='w-full' id='password' size='md' type='password' placeholder='Password' name={field.name} value={field.state.value} onBlur={field.handleBlur} onChange={(event) => field.handleChange(event.target.value)}/>
+                            <InputCombine label="Password*" link={<Link href='#' size='sm' underline>Forgot your password?</Link>} className='w-full' id='password' size='md' type='password' placeholder='Password' name={field.name} value={field.state.value} onBlur={field.handleBlur} onChange={(event) => field.handleChange(event.target.value)} />
                                 {!field.state.meta.isValid && (
                                     <Text size='sm' className='text-red-600'>
                                         {field.state.meta.errors.join(', ')}
