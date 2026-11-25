@@ -12,15 +12,12 @@ export function Input({
   prefix,
   className = '',
   disabled,
-  label,
   ...props
 }: InputProps) {
   const {theme} = useTheme()
   const currentTheme = inputThemes[theme]
   
   return(
-    <div>
-      {label}
       <div
         className={[baseStyles, currentTheme.wrapper, inputSizes[size], disabled ? 'cursor-not-allowed opacity-50' : '', className]
           .filter(Boolean)
@@ -38,6 +35,5 @@ export function Input({
         />
         {rightIcon && <div className="flex shrink-0 items-center justify-center pr-3">{rightIcon}</div>}
       </div>
-    </div>
   )
 }
