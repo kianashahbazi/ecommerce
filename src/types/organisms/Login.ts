@@ -1,9 +1,7 @@
-import type { ChangeEvent , FormEvent } from "react";
-export interface LoginProps{
+export interface LoginFormValues{
     username:string
-    password : string
-
-    onUsernameChange : (event : ChangeEvent<HTMLInputElement>) => void
-    onPasswordChange : (event : ChangeEvent <HTMLInputElement>) => void
-    onSubmit : (event : FormEvent<HTMLFormElement>) => void
+    password:string
+}
+export interface LoginProps{
+    onSubmit:(data : LoginFormValues) => void
 }
